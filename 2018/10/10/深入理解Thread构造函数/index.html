@@ -1,0 +1,164 @@
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  <title>默默无言</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/lib/jquery.js"></script>
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <script src="/js/common.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+</head>
+
+  <body>
+    <header class="header">
+  <div class="color-bar">
+    <ul>
+      <li class="bar1"></li>
+      <li class="bar2"></li>
+      <li class="bar3"></li>
+      <li class="bar4"></li>
+      <li class="bar5"></li>
+      <li class="bar6"></li>
+    </ul>
+  </div>
+  <div class="header-wrapper">
+    <div class="blog-title">
+      
+        <img class="logo" src="/images/logo.png" alt="logo">
+      
+      <a href="/" class="title">默默无言</a>
+    </div>
+    <nav class="navbar navbar-menu">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" id="nav-btn" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+      </div>
+        <ul class="menu menu-pc">
+          
+            <li class="menu-item">
+              <a href="/" class="menu-item-link"><i class="fa fa-home"></i><span>首页</span></a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="/tags/" class="menu-item-link"><i class="fa fa-tags"></i><span>Tags</span></a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="/archives/" class="menu-item-link"><i class="fa fa-file"></i><span>归档</span></a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="https://github.com/littleee/" class="menu-item-link"><i class="fa fa-github"></i><span>github</span></a>
+            </li>
+          
+        </ul>
+    </nav>
+  </div>
+</header>
+<div class="collapse nav-collapse" style="position:fixed;top:59px;" id="bs-example-navbar-collapse-1">
+  <ul class="menu menu-mobile" style="list-style:none">
+    
+      <li class="menu-item">
+        <a href="/" class="menu-item-link"><i class="fa fa-home"></i><span>首页</span></a>
+      </li>
+    
+      <li class="menu-item">
+        <a href="/tags/" class="menu-item-link"><i class="fa fa-tags"></i><span>Tags</span></a>
+      </li>
+    
+      <li class="menu-item">
+        <a href="/archives/" class="menu-item-link"><i class="fa fa-file"></i><span>归档</span></a>
+      </li>
+    
+      <li class="menu-item">
+        <a href="https://github.com/littleee/" class="menu-item-link"><i class="fa fa-github"></i><span>github</span></a>
+      </li>
+    
+  </ul>
+</div>
+
+    <main class="main">
+      <div class="content">
+        
+  <article class="post">
+    <div class="post-title">
+      <h2 class="title">第二章：深入理解Thread构造函数</h2>
+       
+    </div>
+     <div class="post-meta">
+      <span class="post-time">2018-10-10</span>
+    </div>
+    <div class="post-content">
+      <hr>
+<h2 id="第一节-线程的命名"><a href="#第一节-线程的命名" class="headerlink" title="第一节 线程的命名"></a>第一节 线程的命名</h2><h3 id="1、-线程的默认命名"><a href="#1、-线程的默认命名" class="headerlink" title="1、 线程的默认命名"></a>1、 线程的默认命名</h3><h6 id="如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名"><a href="#如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名" class="headerlink" title="如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名"></a>如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名</h6><hr>
+<h3 id="2、线程命名"><a href="#2、线程命名" class="headerlink" title="2、线程命名"></a>2、线程命名</h3><h6 id="Thread-Runnable-target-String-name"><a href="#Thread-Runnable-target-String-name" class="headerlink" title="Thread(Runnable target,String name)"></a>Thread(Runnable target,String name)</h6><h6 id="Thread-String-name"><a href="#Thread-String-name" class="headerlink" title="Thread(String name)"></a>Thread(String name)</h6><h6 id="Thread-ThreadGroup-group-Runnable-target-String-name"><a href="#Thread-ThreadGroup-group-Runnable-target-String-name" class="headerlink" title="Thread(ThreadGroup group,Runnable target,String name)"></a>Thread(ThreadGroup group,Runnable target,String name)</h6><h6 id="Thread-ThreadGroup-group-String-name"><a href="#Thread-ThreadGroup-group-String-name" class="headerlink" title="Thread(ThreadGroup group,,String name)"></a>Thread(ThreadGroup group,,String name)</h6><hr>
+<h2 id="第二节：线程的父子关系"><a href="#第二节：线程的父子关系" class="headerlink" title="第二节：线程的父子关系"></a>第二节：线程的父子关系</h2><h6 id="任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程"><a href="#任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程" class="headerlink" title="任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程"></a>任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程</h6><h6 id="currentThread-查看当前线程"><a href="#currentThread-查看当前线程" class="headerlink" title="currentThread():查看当前线程"></a>currentThread():查看当前线程</h6><hr>
+<h2 id="第三节：Thread与ThreadGroup"><a href="#第三节：Thread与ThreadGroup" class="headerlink" title="第三节：Thread与ThreadGroup"></a>第三节：Thread与ThreadGroup</h2><ul>
+<li>main线程所在的ThreadGroup成为main</li>
+<li>构造一个线程的时候如果没有显式的指定ThreadGroup，那么他将和父线程在同一个Group中，拥有相同的优先级</li>
+</ul>
+<hr>
+<h2 id="第四节：Thread与RUNNABLE"><a href="#第四节：Thread与RUNNABLE" class="headerlink" title="第四节：Thread与RUNNABLE"></a>第四节：Thread与RUNNABLE</h2><h6 id="Runnable接口非常简单，只定义了一个无参数无返回的run方法"><a href="#Runnable接口非常简单，只定义了一个无参数无返回的run方法" class="headerlink" title="Runnable接口非常简单，只定义了一个无参数无返回的run方法"></a>Runnable接口非常简单，只定义了一个无参数无返回的run方法</h6><h6 id="创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑"><a href="#创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑" class="headerlink" title="创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑"></a>创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑</h6><hr>
+<h2 id="第五节：守护线程"><a href="#第五节：守护线程" class="headerlink" title="第五节：守护线程"></a>第五节：守护线程</h2><h3 id="1、示例"><a href="#1、示例" class="headerlink" title="1、示例"></a>1、示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) </span><br><span class="line">	&#123;</span><br><span class="line">		 	Thread thread=new Thread(()-&gt;</span><br><span class="line">			 	&#123;</span><br><span class="line">			 		while(true)</span><br><span class="line">			 		&#123;</span><br><span class="line">			 			try</span><br><span class="line">			 			&#123;</span><br><span class="line">			 				Thread.sleep(1);</span><br><span class="line">			 			&#125;</span><br><span class="line">			 			catch (Exception e) &#123;</span><br><span class="line">			 				e.printStackTrace();</span><br><span class="line">							// TODO: handle exception</span><br><span class="line">						&#125;</span><br><span class="line">			 		&#125;</span><br><span class="line">			 	&#125;</span><br><span class="line">		 	);</span><br><span class="line">		 	thread.setDaemon(true);//设为守护线程</span><br><span class="line">		 	thread.start();</span><br><span class="line">		 	</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、-守护线程的作用"><a href="#2、-守护线程的作用" class="headerlink" title="2、 守护线程的作用"></a>2、 守护线程的作用</h3><h6 id="正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。"><a href="#正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。" class="headerlink" title="正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。"></a>正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。</h6>
+    </div>
+  </article>
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+        <a href="/2018/10/08/个人简历/" rel="next" title="个人简历">
+          <i class="fa fa-chevron-left"></i> 个人简历
+        </a>
+      
+    </div>
+
+    <span class="post-nav-divider"></span>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="/2018/10/10/快速认识线程/" rel="prev" title="第一章：快速认识线程">
+          第一章：快速认识线程 <i class="fa fa-chevron-right"></i>
+        </a>
+      
+    </div>
+  </div>
+
+
+
+      </div>
+        <div class="footer">
+  <div class="footer-wrapper">
+    <div class="copyright">
+      
+      <span>&copy;</span>
+      
+      <span>2018</span>
+      
+      <span class="author"><i class="fa fa-user"></i>张秋松</span>
+    </div>
+    
+      <span>Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> </span>
+    
+    
+      <span>|</span> <span>Theme - <a href="https://github.com/littleee/corazon">Corazon</a></span>
+      
+        <span>v1.0.0</span>
+      
+    
+  </div>
+</div>
+
+    </main>
+  </body>
+</html>

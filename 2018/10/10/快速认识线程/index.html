@@ -91,41 +91,16 @@
     <main class="main">
       <div class="content">
         
-
-<section class="banner">
-  <div class="headintro">
-    <p class="title">秋风萧瑟，松叶飘零</p>
-    <p class="subtitle">无边落木萧萧下，不尽长江滚滚来</p>
-  </div>
-</section>
-
-
-
-<section class="posts">
-  
-    <article class="post">
-      <div class="post-meta">
-        <span class="post-time">2018-10-10</span>
-      </div>
-      <div class="post-title">
-        
-          <a class="post-title-link" href="/2018/10/10/快速认识线程/">
-            
-              第一章：快速认识线程
-            
-          </a>
-          
-        
-        <div class="post-tags">
-          
-        </div>
-      </div>
-      <div class="post-content">
-
-        
-
-        
-        <h3 id="第一节：线程基础"><a href="#第一节：线程基础" class="headerlink" title="==第一节：线程基础=="></a>==第一节：线程基础==</h3><h5 id="1-1-线程的介绍"><a href="#1-1-线程的介绍" class="headerlink" title="1.1 线程的介绍"></a>1.1 线程的介绍</h5><p>进程：对于计算机来说，每一个任务就是一个进程<br>线程：每一个进程中至少有一个线程要运行，每一个线程都要有自己的局部变量表、程序计数器以及各自的生命周期</p>
+  <article class="post">
+    <div class="post-title">
+      <h2 class="title">第一章：快速认识线程</h2>
+       
+    </div>
+     <div class="post-meta">
+      <span class="post-time">2018-10-10</span>
+    </div>
+    <div class="post-content">
+      <h3 id="第一节：线程基础"><a href="#第一节：线程基础" class="headerlink" title="==第一节：线程基础=="></a>==第一节：线程基础==</h3><h5 id="1-1-线程的介绍"><a href="#1-1-线程的介绍" class="headerlink" title="1.1 线程的介绍"></a>1.1 线程的介绍</h5><p>进程：对于计算机来说，每一个任务就是一个进程<br>线程：每一个进程中至少有一个线程要运行，每一个线程都要有自己的局部变量表、程序计数器以及各自的生命周期</p>
 <hr>
 <h5 id="1-2快速创建一个线程"><a href="#1-2快速创建一个线程" class="headerlink" title="1.2快速创建一个线程"></a>1.2快速创建一个线程</h5><ul>
 <li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Enumeration;</span><br><span class="line">import java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line">import javax.net.ssl.SSLException;</span><br><span class="line">import javax.swing.LookAndFeel;</span><br><span class="line"></span><br><span class="line">public class Main</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) </span><br><span class="line">	&#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		new Thread()</span><br><span class="line">		&#123;</span><br><span class="line">			@Override</span><br><span class="line">			public void run()</span><br><span class="line">			&#123;</span><br><span class="line">				Look();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;.start();</span><br><span class="line">		eat();</span><br><span class="line">	&#125;</span><br><span class="line">	private static void Look()</span><br><span class="line">	&#123;</span><br><span class="line">		for(;;)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;我看一看&quot;);</span><br><span class="line">			sleep(1);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	private static void eat() </span><br><span class="line">	&#123;</span><br><span class="line">		for(;;)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;我尝一尝&quot;);</span><br><span class="line">			sleep(1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	private static void sleep(int seconds) </span><br><span class="line">	&#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			TimeUnit.SECONDS.sleep(seconds);</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			// TODO: handle exception</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -228,102 +203,23 @@
 </ul>
 <hr>
 
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <div class="post-meta">
-        <span class="post-time">2018-10-10</span>
-      </div>
-      <div class="post-title">
-        
-          <a class="post-title-link" href="/2018/10/10/深入理解Thread构造函数/">
-            
-              第二章：深入理解Thread构造函数
-            
-          </a>
-          
-        
-        <div class="post-tags">
-          
-        </div>
-      </div>
-      <div class="post-content">
+    </div>
+  </article>
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+        <a href="/2018/10/10/深入理解Thread构造函数/" rel="next" title="第二章：深入理解Thread构造函数">
+          <i class="fa fa-chevron-left"></i> 第二章：深入理解Thread构造函数
+        </a>
+      
+    </div>
 
-        
+    <span class="post-nav-divider"></span>
 
-        
-        <hr>
-<h2 id="第一节-线程的命名"><a href="#第一节-线程的命名" class="headerlink" title="第一节 线程的命名"></a>第一节 线程的命名</h2><h3 id="1、-线程的默认命名"><a href="#1、-线程的默认命名" class="headerlink" title="1、 线程的默认命名"></a>1、 线程的默认命名</h3><h6 id="如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名"><a href="#如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名" class="headerlink" title="如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名"></a>如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名</h6><hr>
-<h3 id="2、线程命名"><a href="#2、线程命名" class="headerlink" title="2、线程命名"></a>2、线程命名</h3><h6 id="Thread-Runnable-target-String-name"><a href="#Thread-Runnable-target-String-name" class="headerlink" title="Thread(Runnable target,String name)"></a>Thread(Runnable target,String name)</h6><h6 id="Thread-String-name"><a href="#Thread-String-name" class="headerlink" title="Thread(String name)"></a>Thread(String name)</h6><h6 id="Thread-ThreadGroup-group-Runnable-target-String-name"><a href="#Thread-ThreadGroup-group-Runnable-target-String-name" class="headerlink" title="Thread(ThreadGroup group,Runnable target,String name)"></a>Thread(ThreadGroup group,Runnable target,String name)</h6><h6 id="Thread-ThreadGroup-group-String-name"><a href="#Thread-ThreadGroup-group-String-name" class="headerlink" title="Thread(ThreadGroup group,,String name)"></a>Thread(ThreadGroup group,,String name)</h6><hr>
-<h2 id="第二节：线程的父子关系"><a href="#第二节：线程的父子关系" class="headerlink" title="第二节：线程的父子关系"></a>第二节：线程的父子关系</h2><h6 id="任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程"><a href="#任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程" class="headerlink" title="任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程"></a>任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程</h6><h6 id="currentThread-查看当前线程"><a href="#currentThread-查看当前线程" class="headerlink" title="currentThread():查看当前线程"></a>currentThread():查看当前线程</h6><hr>
-<h2 id="第三节：Thread与ThreadGroup"><a href="#第三节：Thread与ThreadGroup" class="headerlink" title="第三节：Thread与ThreadGroup"></a>第三节：Thread与ThreadGroup</h2><ul>
-<li>main线程所在的ThreadGroup成为main</li>
-<li>构造一个线程的时候如果没有显式的指定ThreadGroup，那么他将和父线程在同一个Group中，拥有相同的优先级</li>
-</ul>
-<hr>
-<h2 id="第四节：Thread与RUNNABLE"><a href="#第四节：Thread与RUNNABLE" class="headerlink" title="第四节：Thread与RUNNABLE"></a>第四节：Thread与RUNNABLE</h2><h6 id="Runnable接口非常简单，只定义了一个无参数无返回的run方法"><a href="#Runnable接口非常简单，只定义了一个无参数无返回的run方法" class="headerlink" title="Runnable接口非常简单，只定义了一个无参数无返回的run方法"></a>Runnable接口非常简单，只定义了一个无参数无返回的run方法</h6><h6 id="创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑"><a href="#创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑" class="headerlink" title="创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑"></a>创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑</h6><hr>
-<h2 id="第五节：守护线程"><a href="#第五节：守护线程" class="headerlink" title="第五节：守护线程"></a>第五节：守护线程</h2><h3 id="1、示例"><a href="#1、示例" class="headerlink" title="1、示例"></a>1、示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) </span><br><span class="line">	&#123;</span><br><span class="line">		 	Thread thread=new Thread(()-&gt;</span><br><span class="line">			 	&#123;</span><br><span class="line">			 		while(true)</span><br><span class="line">			 		&#123;</span><br><span class="line">			 			try</span><br><span class="line">			 			&#123;</span><br><span class="line">			 				Thread.sleep(1);</span><br><span class="line">			 			&#125;</span><br><span class="line">			 			catch (Exception e) &#123;</span><br><span class="line">			 				e.printStackTrace();</span><br><span class="line">							// TODO: handle exception</span><br><span class="line">						&#125;</span><br><span class="line">			 		&#125;</span><br><span class="line">			 	&#125;</span><br><span class="line">		 	);</span><br><span class="line">		 	thread.setDaemon(true);//设为守护线程</span><br><span class="line">		 	thread.start();</span><br><span class="line">		 	</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2、-守护线程的作用"><a href="#2、-守护线程的作用" class="headerlink" title="2、 守护线程的作用"></a>2、 守护线程的作用</h3><h6 id="正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。"><a href="#正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。" class="headerlink" title="正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。"></a>正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。</h6>
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <div class="post-meta">
-        <span class="post-time">2018-10-08</span>
-      </div>
-      <div class="post-title">
-        
-          <a class="post-title-link" href="/2018/10/08/个人简历/">
-            
-              个人简历
-            
-          </a>
-          
-        
-        <div class="post-tags">
-          
-        </div>
-      </div>
-      <div class="post-content">
-
-        
-
-        
-        <h2 id="基本资料"><a href="#基本资料" class="headerlink" title="基本资料"></a>基本资料</h2><p>姓名：张秋松<br>性别：男<br>年龄：22<br>联系电话：16603319652<br>邮箱：<a href="mailto:734589527@qq.com" target="_blank" rel="noopener">734589527@qq.com</a><br>所在地：河北省秦皇岛</p>
-<hr>
-<h2 id="教育背景"><a href="#教育背景" class="headerlink" title="教育背景"></a>教育背景</h2><p>学校：石家庄铁道大学<br>专业：软件工程<br>时间：2014-09-01 至 2018-07-01<br>学位：本科</p>
-<hr>
-<h2 id="工作经验"><a href="#工作经验" class="headerlink" title="工作经验"></a>工作经验</h2><ul>
-<li>一号全球购商城   </li>
-<li>.net</li>
-<li>负责调试更正程序，在原系统基础上增加分销模块</li>
-</ul>
-<hr>
-<ul>
-<li>中铁山桥集团创新投票系统  </li>
-<li>.net</li>
-<li>负责整体系统编写，主要是上传创新课题，对课题进行评分，三轮投票</li>
-</ul>
-<hr>
-<h2 id="技能特长"><a href="#技能特长" class="headerlink" title="技能特长"></a>技能特长</h2><ul>
-<li>熟悉JAVA开发技术</li>
-<li>熟悉.net开发技术</li>
-<li>熟悉SpringBoot框架</li>
-<li>熟悉SSM/SSH框架</li>
-<li>熟悉.net MVC框架</li>
-<li>了解python开发技术</li>
-<li>熟悉MySQL数据库</li>
-<li>了解php语言<h2 id="获得证书"><a href="#获得证书" class="headerlink" title="获得证书"></a>获得证书</h2>中级软件设计师</li>
-</ul>
-
-        
-      </div>
-    </article>
-  
-</section>
+    <div class="post-nav-prev post-nav-item">
+    
+    </div>
+  </div>
 
 
 
