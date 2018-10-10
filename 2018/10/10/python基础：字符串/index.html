@@ -1,0 +1,156 @@
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  <title>默默无言</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/lib/jquery.js"></script>
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <script src="/js/common.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+</head>
+
+  <body>
+    <header class="header">
+  <div class="color-bar">
+    <ul>
+      <li class="bar1"></li>
+      <li class="bar2"></li>
+      <li class="bar3"></li>
+      <li class="bar4"></li>
+      <li class="bar5"></li>
+      <li class="bar6"></li>
+    </ul>
+  </div>
+  <div class="header-wrapper">
+    <div class="blog-title">
+      
+        <img class="logo" src="/images/logo.png" alt="logo">
+      
+      <a href="/" class="title">默默无言</a>
+    </div>
+    <nav class="navbar navbar-menu">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" id="nav-btn" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+      </div>
+        <ul class="menu menu-pc">
+          
+            <li class="menu-item">
+              <a href="/" class="menu-item-link"><i class="fa fa-home"></i><span>首页</span></a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="/tags/" class="menu-item-link"><i class="fa fa-tags"></i><span>Tags</span></a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="/archives/" class="menu-item-link"><i class="fa fa-file"></i><span>归档</span></a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="https://github.com/littleee/" class="menu-item-link"><i class="fa fa-github"></i><span>github</span></a>
+            </li>
+          
+        </ul>
+    </nav>
+  </div>
+</header>
+<div class="collapse nav-collapse" style="position:fixed;top:59px;" id="bs-example-navbar-collapse-1">
+  <ul class="menu menu-mobile" style="list-style:none">
+    
+      <li class="menu-item">
+        <a href="/" class="menu-item-link"><i class="fa fa-home"></i><span>首页</span></a>
+      </li>
+    
+      <li class="menu-item">
+        <a href="/tags/" class="menu-item-link"><i class="fa fa-tags"></i><span>Tags</span></a>
+      </li>
+    
+      <li class="menu-item">
+        <a href="/archives/" class="menu-item-link"><i class="fa fa-file"></i><span>归档</span></a>
+      </li>
+    
+      <li class="menu-item">
+        <a href="https://github.com/littleee/" class="menu-item-link"><i class="fa fa-github"></i><span>github</span></a>
+      </li>
+    
+  </ul>
+</div>
+
+    <main class="main">
+      <div class="content">
+        
+  <article class="post">
+    <div class="post-title">
+      <h2 class="title">python基础：字符串</h2>
+       
+    </div>
+     <div class="post-meta">
+      <span class="post-time">2018-10-10</span>
+    </div>
+    <div class="post-content">
+      <h6 id="cstr-切片-str-起始（包含）-结束（不包含）-步长（间隔）"><a href="#cstr-切片-str-起始（包含）-结束（不包含）-步长（间隔）" class="headerlink" title="cstr 切片 str[起始（包含）:结束（不包含）:步长（间隔）]"></a>cstr 切片 str[起始（包含）:结束（不包含）:步长（间隔）]</h6><h6 id="例-name-0-10-2"><a href="#例-name-0-10-2" class="headerlink" title="例:name[0:10:2]"></a>例:name[0:10:2]</h6><h6 id="字符串倒叙输出：name-1-1"><a href="#字符串倒叙输出：name-1-1" class="headerlink" title="字符串倒叙输出：name[-1::-1]"></a>字符串倒叙输出：name[-1::-1]</h6><hr>
+<h4 id="find函数"><a href="#find函数" class="headerlink" title="find函数"></a>find函数</h4><h6 id="mystr-find-str-start-0-end-length"><a href="#mystr-find-str-start-0-end-length" class="headerlink" title="mystr.find(str,start=0,end=length)"></a>mystr.find(str,start=0,end=length)</h6><h6 id="返回结果：字符串所在第一个字符下表"><a href="#返回结果：字符串所在第一个字符下表" class="headerlink" title="返回结果：字符串所在第一个字符下表"></a>返回结果：字符串所在第一个字符下表</h6><h6 id="失败返回-1"><a href="#失败返回-1" class="headerlink" title="失败返回-1"></a>失败返回-1</h6><h6 id="多个自动返回左边第一个"><a href="#多个自动返回左边第一个" class="headerlink" title="多个自动返回左边第一个"></a>多个自动返回左边第一个</h6><h6 id="rfind-右边第一个"><a href="#rfind-右边第一个" class="headerlink" title="rfind(右边第一个)"></a>rfind(右边第一个)</h6><hr>
+<h6 id="index函数"><a href="#index函数" class="headerlink" title="index函数"></a>index函数</h6><h6 id="功能与find相同，查找失败报错。"><a href="#功能与find相同，查找失败报错。" class="headerlink" title="功能与find相同，查找失败报错。"></a>功能与find相同，查找失败报错。</h6><hr>
+<h6 id="count函数：查找子字符串数量"><a href="#count函数：查找子字符串数量" class="headerlink" title="count函数：查找子字符串数量"></a>count函数：查找子字符串数量</h6><h6 id="replace函数：替换字符串"><a href="#replace函数：替换字符串" class="headerlink" title="replace函数：替换字符串"></a>replace函数：替换字符串</h6><h6 id="split-分割字符串-隔开符不要"><a href="#split-分割字符串-隔开符不要" class="headerlink" title="split:分割字符串 隔开符不要"></a>split:分割字符串 隔开符不要</h6><h6 id="partition-str-函数：分割函数（隔开符变为一个元素）"><a href="#partition-str-函数：分割函数（隔开符变为一个元素）" class="headerlink" title="partition(str)函数：分割函数（隔开符变为一个元素）"></a>partition(str)函数：分割函数（隔开符变为一个元素）</h6><h6 id="mystr-capitalize函数：字符串第一个字符大些"><a href="#mystr-capitalize函数：字符串第一个字符大些" class="headerlink" title="mystr.capitalize函数：字符串第一个字符大些"></a>mystr.capitalize函数：字符串第一个字符大些</h6><h6 id="mystr-title函数：每个单词首字母大写"><a href="#mystr-title函数：每个单词首字母大写" class="headerlink" title="mystr.title函数：每个单词首字母大写"></a>mystr.title函数：每个单词首字母大写</h6><h6 id="startswith-endswith函数：是否。。。开头-结尾"><a href="#startswith-endswith函数：是否。。。开头-结尾" class="headerlink" title="startswith/endswith函数：是否。。。开头/结尾"></a>startswith/endswith函数：是否。。。开头/结尾</h6><h6 id="lower-upper-大写-小写"><a href="#lower-upper-大写-小写" class="headerlink" title="lower/upper:大写/小写"></a>lower/upper:大写/小写</h6><h6 id="ljust-宽度-左对齐-使用空格填充"><a href="#ljust-宽度-左对齐-使用空格填充" class="headerlink" title="ljust(宽度):左对齐 使用空格填充"></a>ljust(宽度):左对齐 使用空格填充</h6><h6 id="rjust：右对其"><a href="#rjust：右对其" class="headerlink" title="rjust：右对其"></a>rjust：右对其</h6><h6 id="cjust：居中对其"><a href="#cjust：居中对其" class="headerlink" title="cjust：居中对其"></a>cjust：居中对其</h6><h6 id="lstrip-删除左边空白自负"><a href="#lstrip-删除左边空白自负" class="headerlink" title="lstrip:删除左边空白自负"></a>lstrip:删除左边空白自负</h6><h6 id="rstrip-右边"><a href="#rstrip-右边" class="headerlink" title="rstrip:右边"></a>rstrip:右边</h6><h6 id="strip-左右两端"><a href="#strip-左右两端" class="headerlink" title="strip:左右两端"></a>strip:左右两端</h6><h6 id="splitlines-按换行符分割字符串"><a href="#splitlines-按换行符分割字符串" class="headerlink" title="splitlines:按换行符分割字符串"></a>splitlines:按换行符分割字符串</h6><h6 id="isspace-字符串是否为空"><a href="#isspace-字符串是否为空" class="headerlink" title="isspace:字符串是否为空"></a>isspace:字符串是否为空</h6><h6 id="isalpha-字符串是否为字母组成"><a href="#isalpha-字符串是否为字母组成" class="headerlink" title="isalpha:字符串是否为字母组成"></a>isalpha:字符串是否为字母组成</h6><h6 id="isdigit-字符串由数字组成"><a href="#isdigit-字符串由数字组成" class="headerlink" title="isdigit:字符串由数字组成"></a>isdigit:字符串由数字组成</h6><h6 id="isalnum-数字或字母"><a href="#isalnum-数字或字母" class="headerlink" title="isalnum:数字或字母"></a>isalnum:数字或字母</h6><h6 id="mystr-join-列表-：使用字符串连接列表"><a href="#mystr-join-列表-：使用字符串连接列表" class="headerlink" title="mystr.join(列表)：使用字符串连接列表"></a>mystr.join(列表)：使用字符串连接列表</h6>
+    </div>
+  </article>
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+        <a href="/2018/10/10/python基础：元组字典/" rel="next" title="python基础：元组/字典">
+          <i class="fa fa-chevron-left"></i> python基础：元组/字典
+        </a>
+      
+    </div>
+
+    <span class="post-nav-divider"></span>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="/2018/10/10/python基础：列表/" rel="prev" title="python基础：列表">
+          python基础：列表 <i class="fa fa-chevron-right"></i>
+        </a>
+      
+    </div>
+  </div>
+
+
+
+      </div>
+        <div class="footer">
+  <div class="footer-wrapper">
+    <div class="copyright">
+      
+      <span>&copy;</span>
+      
+      <span>2018</span>
+      
+      <span class="author"><i class="fa fa-user"></i>张秋松</span>
+    </div>
+    
+      <span>Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> </span>
+    
+    
+      <span>|</span> <span>Theme - <a href="https://github.com/littleee/corazon">Corazon</a></span>
+      
+        <span>v1.0.0</span>
+      
+    
+  </div>
+</div>
+
+    </main>
+  </body>
+</html>
