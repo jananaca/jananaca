@@ -1,0 +1,161 @@
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  <title>默默无言</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/lib/jquery.js"></script>
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <script src="/js/common.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+</head>
+
+  <body>
+    <header class="header">
+  <div class="color-bar">
+    <ul>
+      <li class="bar1"></li>
+      <li class="bar2"></li>
+      <li class="bar3"></li>
+      <li class="bar4"></li>
+      <li class="bar5"></li>
+      <li class="bar6"></li>
+    </ul>
+  </div>
+  <div class="header-wrapper">
+    <div class="blog-title">
+      
+        <img class="logo" src="/images/logo.png" alt="logo">
+      
+      <a href="/" class="title">默默无言</a>
+    </div>
+    <nav class="navbar navbar-menu">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" id="nav-btn" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+      </div>
+        <ul class="menu menu-pc">
+          
+            <li class="menu-item">
+              <a href="/" class="menu-item-link"><i class="fa fa-home"></i><span>首页</span></a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="/tags/" class="menu-item-link"><i class="fa fa-tags"></i><span>Tags</span></a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="/archives/" class="menu-item-link"><i class="fa fa-file"></i><span>归档</span></a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="https://github.com/littleee/" class="menu-item-link"><i class="fa fa-github"></i><span>github</span></a>
+            </li>
+          
+        </ul>
+    </nav>
+  </div>
+</header>
+<div class="collapse nav-collapse" style="position:fixed;top:59px;" id="bs-example-navbar-collapse-1">
+  <ul class="menu menu-mobile" style="list-style:none">
+    
+      <li class="menu-item">
+        <a href="/" class="menu-item-link"><i class="fa fa-home"></i><span>首页</span></a>
+      </li>
+    
+      <li class="menu-item">
+        <a href="/tags/" class="menu-item-link"><i class="fa fa-tags"></i><span>Tags</span></a>
+      </li>
+    
+      <li class="menu-item">
+        <a href="/archives/" class="menu-item-link"><i class="fa fa-file"></i><span>归档</span></a>
+      </li>
+    
+      <li class="menu-item">
+        <a href="https://github.com/littleee/" class="menu-item-link"><i class="fa fa-github"></i><span>github</span></a>
+      </li>
+    
+  </ul>
+</div>
+
+    <main class="main">
+      <div class="content">
+        
+  <article class="post">
+    <div class="post-title">
+      <h2 class="title">SpringBoot配置</h2>
+       
+    </div>
+     <div class="post-meta">
+      <span class="post-time">2018-10-10</span>
+    </div>
+    <div class="post-content">
+      <h2 id="配置文件格式"><a href="#配置文件格式" class="headerlink" title="配置文件格式"></a>配置文件格式</h2><h6 id="SpringBoot有两种配置文件，一种是properties-一种是yml文件格式"><a href="#SpringBoot有两种配置文件，一种是properties-一种是yml文件格式" class="headerlink" title="SpringBoot有两种配置文件，一种是properties,一种是yml文件格式"></a>SpringBoot有两种配置文件，一种是properties,一种是yml文件格式</h6><h6 id="默认配置文件为application-properties"><a href="#默认配置文件为application-properties" class="headerlink" title="默认配置文件为application.properties"></a>默认配置文件为application.properties</h6><hr>
+<h2 id="配置文件语法"><a href="#配置文件语法" class="headerlink" title="配置文件语法"></a>配置文件语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#Tomcat端口</span><br><span class="line">server.port=8080</span><br><span class="line">#网址上下文，默认为/</span><br><span class="line">server.servlet.context-path=/demo</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="多环境配置文件"><a href="#多环境配置文件" class="headerlink" title="多环境配置文件"></a>多环境配置文件</h2><h6 id="可能会由多个properties配置文件，根部不同环境需要进行调用"><a href="#可能会由多个properties配置文件，根部不同环境需要进行调用" class="headerlink" title="可能会由多个properties配置文件，根部不同环境需要进行调用"></a>可能会由多个properties配置文件，根部不同环境需要进行调用</h6><h6 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h6><h6 id="环境下有application-dev-properties-application-online-properties-application-debug-properties三个配置文件"><a href="#环境下有application-dev-properties-application-online-properties-application-debug-properties三个配置文件" class="headerlink" title="环境下有application-dev.properties,application-online.properties,application-debug.properties三个配置文件"></a>环境下有application-dev.properties,application-online.properties,application-debug.properties三个配置文件</h6><h6 id="如果调用application-dev-properties配置文件，则需要在application-properties中配置：spring-profiles-active-dev"><a href="#如果调用application-dev-properties配置文件，则需要在application-properties中配置：spring-profiles-active-dev" class="headerlink" title="如果调用application-dev.properties配置文件，则需要在application.properties中配置：spring.profiles.active=dev"></a>如果调用application-dev.properties配置文件，则需要在application.properties中配置：spring.profiles.active=dev</h6><hr>
+<h2 id="自定义配置文件"><a href="#自定义配置文件" class="headerlink" title="自定义配置文件"></a>自定义配置文件</h2><h3 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h3><h6 id="例：-1"><a href="#例：-1" class="headerlink" title="例："></a>例：</h6><h6 id="application-properties文件"><a href="#application-properties文件" class="headerlink" title="application.properties文件"></a>application.properties文件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server.port=8080</span><br><span class="line">server.servlet.context-path=/demo</span><br><span class="line">spring.http.encoding.charset=utf-8</span><br><span class="line">spring.http.encoding.enabled=true</span><br><span class="line">spring.http.encoding.force=true</span><br><span class="line"></span><br><span class="line">test.name=张秋松</span><br><span class="line">test.age=22</span><br></pre></td></tr></table></figure>
+<h6 id="ConfigInfoController文件"><a href="#ConfigInfoController文件" class="headerlink" title="ConfigInfoController文件"></a>ConfigInfoController文件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package com.example.demo.Controller;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Value;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line">@Controller</span><br><span class="line">public class ConfigInfoController </span><br><span class="line">&#123;</span><br><span class="line">	@Value(&quot;$&#123;test.name&#125;&quot;)</span><br><span class="line">	private String name;</span><br><span class="line">	@Value(&quot;$&#123;test.age&#125;&quot;)</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	@RequestMapping(&quot;/config/read&quot;)</span><br><span class="line">	@ResponseBody</span><br><span class="line">	public Object Read()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(name);</span><br><span class="line">		return name+&quot;  &quot;+age;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h3><h6 id="Info-class"><a href="#Info-class" class="headerlink" title="Info.class"></a>Info.class</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package com.example.demo.Config;</span><br><span class="line"></span><br><span class="line">import org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">@ConfigurationProperties(prefix=&quot;test&quot;)</span><br><span class="line">public class Info </span><br><span class="line">&#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		this.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="ConfigInfoController文件-1"><a href="#ConfigInfoController文件-1" class="headerlink" title="ConfigInfoController文件"></a>ConfigInfoController文件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package com.example.demo.Controller;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.beans.factory.annotation.Value;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line">import com.example.demo.Config.Info;</span><br><span class="line"></span><br><span class="line">@Controller</span><br><span class="line">public class ConfigInfoController </span><br><span class="line">&#123;</span><br><span class="line">	/*@Value(&quot;$&#123;test.name&#125;&quot;)</span><br><span class="line">	private String name;</span><br><span class="line">	@Value(&quot;$&#123;test.age&#125;&quot;)</span><br><span class="line">	private int age;*/</span><br><span class="line">	@Autowired</span><br><span class="line">	private Info config;</span><br><span class="line">	@RequestMapping(&quot;/config/read&quot;)</span><br><span class="line">	@ResponseBody</span><br><span class="line">	public Object Read()</span><br><span class="line">	&#123;</span><br><span class="line">		/*System.out.println(name);</span><br><span class="line">		return name+&quot;  &quot;+age;*/</span><br><span class="line">		return config;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+  </article>
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+        <a href="/2018/10/10/SpringBoot创建/" rel="next" title="SpringBoot环境搭建">
+          <i class="fa fa-chevron-left"></i> SpringBoot环境搭建
+        </a>
+      
+    </div>
+
+    <span class="post-nav-divider"></span>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="/2018/10/10/SpringBoot结构/" rel="prev" title="">
+           <i class="fa fa-chevron-right"></i>
+        </a>
+      
+    </div>
+  </div>
+
+
+
+      </div>
+        <div class="footer">
+  <div class="footer-wrapper">
+    <div class="copyright">
+      
+      <span>&copy;</span>
+      
+      <span>2018</span>
+      
+      <span class="author"><i class="fa fa-user"></i>张秋松</span>
+    </div>
+    
+      <span>Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> </span>
+    
+    
+      <span>|</span> <span>Theme - <a href="https://github.com/littleee/corazon">Corazon</a></span>
+      
+        <span>v1.0.0</span>
+      
+    
+  </div>
+</div>
+
+    </main>
+  </body>
+</html>
