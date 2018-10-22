@@ -105,6 +105,203 @@
   
     <article class="post">
       <div class="post-meta">
+        <span class="post-time">2018-10-10</span>
+      </div>
+      <div class="post-title">
+        
+          <a class="post-title-link" href="/2018/10/10/python基础：文件操作/">
+            
+              python基础：文件操作
+            
+          </a>
+          
+        
+        <div class="post-tags">
+          
+        </div>
+      </div>
+      <div class="post-content">
+
+        
+
+        
+        <h3 id="文件打开"><a href="#文件打开" class="headerlink" title="文件打开"></a>文件打开</h3><h6 id="f-open-path-model"><a href="#f-open-path-model" class="headerlink" title="f=open(path,model)"></a>f=open(path,model)</h6><h6 id="r-只读模式，指针在开头"><a href="#r-只读模式，指针在开头" class="headerlink" title="r:只读模式，指针在开头"></a>r:只读模式，指针在开头</h6><h6 id="w-写入模式，文件存在则覆盖，否则新建"><a href="#w-写入模式，文件存在则覆盖，否则新建" class="headerlink" title="w:写入模式，文件存在则覆盖，否则新建"></a>w:写入模式，文件存在则覆盖，否则新建</h6><h6 id="a-追加模式，在文件末尾追加"><a href="#a-追加模式，在文件末尾追加" class="headerlink" title="a:追加模式，在文件末尾追加"></a>a:追加模式，在文件末尾追加</h6><h6 id="rb-只读二进制方式打开文件"><a href="#rb-只读二进制方式打开文件" class="headerlink" title="rb:只读二进制方式打开文件"></a>rb:只读二进制方式打开文件</h6><h6 id="wb-以二进制方式写入文件-编码"><a href="#wb-以二进制方式写入文件-编码" class="headerlink" title="wb:以二进制方式写入文件            编码"></a>wb:以二进制方式写入文件            编码</h6><h6 id="ab-以二进制方式追加"><a href="#ab-以二进制方式追加" class="headerlink" title="ab:以二进制方式追加"></a>ab:以二进制方式追加</h6><h6 id="r-读写文件，指针置于开头"><a href="#r-读写文件，指针置于开头" class="headerlink" title="r+:读写文件，指针置于开头"></a>r+:读写文件，指针置于开头</h6><h6 id="w-读写文件，覆盖"><a href="#w-读写文件，覆盖" class="headerlink" title="w+:读写文件，覆盖"></a>w+:读写文件，覆盖</h6><h6 id="a-：读写文件，追加"><a href="#a-：读写文件，追加" class="headerlink" title="a+：读写文件，追加"></a>a+：读写文件，追加</h6><h6 id="rb"><a href="#rb" class="headerlink" title="rb+"></a>rb+</h6><h6 id="wb"><a href="#wb" class="headerlink" title="wb+"></a>wb+</h6><hr>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h6 id="读：read-可加入参数：字节数"><a href="#读：read-可加入参数：字节数" class="headerlink" title="读：read()可加入参数：字节数"></a>读：read()可加入参数：字节数</h6><h6 id="readlines-返回列表-读取所有行"><a href="#readlines-返回列表-读取所有行" class="headerlink" title="readlines:返回列表 读取所有行"></a>readlines:返回列表 读取所有行</h6><h6 id="readline"><a href="#readline" class="headerlink" title="readline:"></a>readline:</h6><h6 id="写：write"><a href="#写：write" class="headerlink" title="写：write()"></a>写：write()</h6><hr>
+<h3 id="关闭文件-重要"><a href="#关闭文件-重要" class="headerlink" title="关闭文件(重要)"></a>关闭文件(重要)</h3><h6 id="f-close"><a href="#f-close" class="headerlink" title="f.close()"></a>f.close()</h6><hr>
+<h3 id="io常用函数"><a href="#io常用函数" class="headerlink" title="io常用函数"></a>io常用函数</h3><h6 id="f-tell：获取指针当前位置"><a href="#f-tell：获取指针当前位置" class="headerlink" title="f.tell：获取指针当前位置"></a>f.tell：获取指针当前位置</h6><h6 id="f-seek-偏移量，方向-：移动指针"><a href="#f-seek-偏移量，方向-：移动指针" class="headerlink" title="f.seek(偏移量，方向)：移动指针"></a>f.seek(偏移量，方向)：移动指针</h6><h6 id="方向：0-从文件开头"><a href="#方向：0-从文件开头" class="headerlink" title="方向：0  从文件开头"></a>方向：0  从文件开头</h6><h6 id="1-当前位置"><a href="#1-当前位置" class="headerlink" title="1  当前位置"></a>1  当前位置</h6><h6 id="2-文件末尾-可能作废"><a href="#2-文件末尾-可能作废" class="headerlink" title="2  文件末尾    ///可能作废"></a>2  文件末尾    ///可能作废</h6><h6 id="os模块常用函数："><a href="#os模块常用函数：" class="headerlink" title="os模块常用函数："></a>os模块常用函数：</h6><h6 id="os-name-当前操作系统类型-windows-nt-linux-posix"><a href="#os-name-当前操作系统类型-windows-nt-linux-posix" class="headerlink" title="os.name:当前操作系统类型  windows:nt  linux:posix"></a>os.name:当前操作系统类型  windows:nt  linux:posix</h6><h6 id="os-getcwd-获取当前目录"><a href="#os-getcwd-获取当前目录" class="headerlink" title="os.getcwd:获取当前目录"></a>os.getcwd:获取当前目录</h6><h6 id="os-listdir-获取目录下文件名"><a href="#os-listdir-获取目录下文件名" class="headerlink" title="os.listdir:获取目录下文件名"></a>os.listdir:获取目录下文件名</h6><h6 id="os-rmdir-删除目录"><a href="#os-rmdir-删除目录" class="headerlink" title="os.rmdir:删除目录"></a>os.rmdir:删除目录</h6><h6 id="os-remove-删除文件"><a href="#os-remove-删除文件" class="headerlink" title="os.remove:删除文件"></a>os.remove:删除文件</h6><h6 id="os-mkdir-创建文件夹"><a href="#os-mkdir-创建文件夹" class="headerlink" title="os.mkdir:创建文件夹"></a>os.mkdir:创建文件夹</h6><h6 id="os-path-isfile-对象是否为文件"><a href="#os-path-isfile-对象是否为文件" class="headerlink" title="os.path.isfile():对象是否为文件"></a>os.path.isfile():对象是否为文件</h6><h6 id="os-path-isdir-对象是否为目录"><a href="#os-path-isdir-对象是否为目录" class="headerlink" title="os.path.isdir():对象是否为目录"></a>os.path.isdir():对象是否为目录</h6><h6 id="os-path-exists-对象是否存在"><a href="#os-path-exists-对象是否存在" class="headerlink" title="os.path.exists():对象是否存在"></a>os.path.exists():对象是否存在</h6><h6 id="os-path-split-返回路径的目录名和文件名"><a href="#os-path-split-返回路径的目录名和文件名" class="headerlink" title="os.path.split():返回路径的目录名和文件名"></a>os.path.split():返回路径的目录名和文件名</h6><h6 id="os-chdir-改变目录到指定目录"><a href="#os-chdir-改变目录到指定目录" class="headerlink" title="os.chdir:改变目录到指定目录"></a>os.chdir:改变目录到指定目录</h6><h6 id="os-path-getsize-查找文件大小"><a href="#os-path-getsize-查找文件大小" class="headerlink" title="os.path.getsize()查找文件大小"></a>os.path.getsize()查找文件大小</h6><h6 id="os-path-abspath-获取绝对路径"><a href="#os-path-abspath-获取绝对路径" class="headerlink" title="os.path.abspath:获取绝对路径"></a>os.path.abspath:获取绝对路径</h6><h6 id="os-path-join-path-name-链接目录名和文件名"><a href="#os-path-join-path-name-链接目录名和文件名" class="headerlink" title="os.path.join(path,name) 链接目录名和文件名"></a>os.path.join(path,name) 链接目录名和文件名</h6><h6 id="os-path-basename-返回文件名"><a href="#os-path-basename-返回文件名" class="headerlink" title="os.path.basename:返回文件名"></a>os.path.basename:返回文件名</h6><h6 id="os-path-dirname-返回文件所在目录"><a href="#os-path-dirname-返回文件所在目录" class="headerlink" title="os.path.dirname:返回文件所在目录"></a>os.path.dirname:返回文件所在目录</h6>
+        
+      </div>
+    </article>
+  
+    <article class="post">
+      <div class="post-meta">
+        <span class="post-time">2018-10-10</span>
+      </div>
+      <div class="post-title">
+        
+          <a class="post-title-link" href="/2018/10/10/快速认识线程/">
+            
+              第一章：快速认识线程
+            
+          </a>
+          
+        
+        <div class="post-tags">
+          
+        </div>
+      </div>
+      <div class="post-content">
+
+        
+
+        
+        <h3 id="第一节：线程基础"><a href="#第一节：线程基础" class="headerlink" title="==第一节：线程基础=="></a>==第一节：线程基础==</h3><h5 id="1-1-线程的介绍"><a href="#1-1-线程的介绍" class="headerlink" title="1.1 线程的介绍"></a>1.1 线程的介绍</h5><p>进程：对于计算机来说，每一个任务就是一个进程<br>线程：每一个进程中至少有一个线程要运行，每一个线程都要有自己的局部变量表、程序计数器以及各自的生命周期</p>
+<hr>
+<h5 id="1-2快速创建一个线程"><a href="#1-2快速创建一个线程" class="headerlink" title="1.2快速创建一个线程"></a>1.2快速创建一个线程</h5><ul>
+<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Enumeration;</span><br><span class="line">import java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line">import javax.net.ssl.SSLException;</span><br><span class="line">import javax.swing.LookAndFeel;</span><br><span class="line"></span><br><span class="line">public class Main</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) </span><br><span class="line">	&#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		new Thread()</span><br><span class="line">		&#123;</span><br><span class="line">			@Override</span><br><span class="line">			public void run()</span><br><span class="line">			&#123;</span><br><span class="line">				Look();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;.start();</span><br><span class="line">		eat();</span><br><span class="line">	&#125;</span><br><span class="line">	private static void Look()</span><br><span class="line">	&#123;</span><br><span class="line">		for(;;)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;我看一看&quot;);</span><br><span class="line">			sleep(1);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	private static void eat() </span><br><span class="line">	&#123;</span><br><span class="line">		for(;;)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;我尝一尝&quot;);</span><br><span class="line">			sleep(1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	private static void sleep(int seconds) </span><br><span class="line">	&#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			TimeUnit.SECONDS.sleep(seconds);</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			// TODO: handle exception</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h5 id="1-3-线程生命周期"><a href="#1-3-线程生命周期" class="headerlink" title="1.3 线程生命周期"></a>1.3 线程生命周期</h5><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>说明</th>
+<th>状态转换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NEW</td>
+<td>创建一个Thread对象，不处于执行状态</td>
+<td>通过start进入RUNNABLE状态</td>
+</tr>
+<tr>
+<td>RUNNABLE</td>
+<td>创建线程，等待CPU调度</td>
+<td>CPU调度进入RUNNING状态</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>执行状态</td>
+<td>* 调用stop或判断标识符进入TERMINATED状态</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>执行状态</td>
+<td>* 调用sleep或wait进入BLOCKED状态</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>执行状态</td>
+<td>* 进行某个阻塞的IO操作，进入BLOCKED状态</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>执行状态</td>
+<td>*获取某个锁资源，从而加入到该锁的阻塞队列而进入BLOCKED状态</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>执行状态</td>
+<td>* 由于CPU调度进入RUNNABLE状态</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>执行状态</td>
+<td>* 线程主动调用yield方法进入RUNNABLE状态</td>
+</tr>
+<tr>
+<td>BLOCKED</td>
+<td>阻塞状态</td>
+<td>* 直接进入TERMINATED状态，调用stop或意外错误</td>
+</tr>
+<tr>
+<td>BLOCKED</td>
+<td>阻塞状态</td>
+<td>* 线程阻塞的操作结束，进入RUNNABLE状态</td>
+</tr>
+<tr>
+<td>BLOCKED</td>
+<td>阻塞状态</td>
+<td>* 线程完成了指定时间的休眠，进入RUNNABLE状态</td>
+</tr>
+<tr>
+<td>BLOCKED</td>
+<td>阻塞状态</td>
+<td>* Wait被其他线程notify/notifyall打断</td>
+</tr>
+<tr>
+<td>BLOCKED</td>
+<td>阻塞状态</td>
+<td>* 线程获取到了某个锁资源，进入RUNNABLE状态</td>
+</tr>
+<tr>
+<td>BLOCKED</td>
+<td>阻塞状态</td>
+<td>* 线程在阻塞过程被打断，进入RUNNABLE状态</td>
+</tr>
+<tr>
+<td>TERMINATED</td>
+<td>最终态</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h5 id="1-4-线程的start方法剖析"><a href="#1-4-线程的start方法剖析" class="headerlink" title="1.4 线程的start方法剖析"></a>1.4 线程的start方法剖析</h5><h6 id="Thread-start-方法源码分析及注意事项"><a href="#Thread-start-方法源码分析及注意事项" class="headerlink" title="Thread start 方法源码分析及注意事项"></a>Thread start 方法源码分析及注意事项</h6><p>Thread start源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void start()</span><br><span class="line">&#123;</span><br><span class="line">    if(threadStatus!=0)</span><br><span class="line">    &#123;</span><br><span class="line">        throw new IllegalThreadStateException();        </span><br><span class="line">    &#125;</span><br><span class="line">    group.add(this);</span><br><span class="line">    boolean started=false;</span><br><span class="line">    try</span><br><span class="line">    &#123;</span><br><span class="line">        start0();</span><br><span class="line">        started=true;</span><br><span class="line">    &#125;</span><br><span class="line">    finally</span><br><span class="line">    &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            if(!started)</span><br><span class="line">            &#123;</span><br><span class="line">                group.threadStartFailed(this);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch(Throwable ignore)</span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中最核心的方法为调用start0()这个本地方法，而重构的run()方法则是由JNI方法start0()调用的</p>
+<ul>
+<li>由源码可以分析出：不能两次启动Thread，否则会出现IllegalThreadStateException异常</li>
+<li>线程被启动会被加入到ThreadGroup中</li>
+<li>TERMINATED状态的线程无法再回到RUNNABLE状态和RUNNING状态的</li>
+</ul>
+<hr>
+
+        
+      </div>
+    </article>
+  
+    <article class="post">
+      <div class="post-meta">
+        <span class="post-time">2018-10-10</span>
+      </div>
+      <div class="post-title">
+        
+          <a class="post-title-link" href="/2018/10/10/深入理解Thread构造函数/">
+            
+              第二章：深入理解Thread构造函数
+            
+          </a>
+          
+        
+        <div class="post-tags">
+          
+        </div>
+      </div>
+      <div class="post-content">
+
+        
+
+        
+        <hr>
+<h2 id="第一节-线程的命名"><a href="#第一节-线程的命名" class="headerlink" title="第一节 线程的命名"></a>第一节 线程的命名</h2><h3 id="1、-线程的默认命名"><a href="#1、-线程的默认命名" class="headerlink" title="1、 线程的默认命名"></a>1、 线程的默认命名</h3><h6 id="如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名"><a href="#如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名" class="headerlink" title="如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名"></a>如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名</h6><hr>
+<h3 id="2、线程命名"><a href="#2、线程命名" class="headerlink" title="2、线程命名"></a>2、线程命名</h3><h6 id="Thread-Runnable-target-String-name"><a href="#Thread-Runnable-target-String-name" class="headerlink" title="Thread(Runnable target,String name)"></a>Thread(Runnable target,String name)</h6><h6 id="Thread-String-name"><a href="#Thread-String-name" class="headerlink" title="Thread(String name)"></a>Thread(String name)</h6><h6 id="Thread-ThreadGroup-group-Runnable-target-String-name"><a href="#Thread-ThreadGroup-group-Runnable-target-String-name" class="headerlink" title="Thread(ThreadGroup group,Runnable target,String name)"></a>Thread(ThreadGroup group,Runnable target,String name)</h6><h6 id="Thread-ThreadGroup-group-String-name"><a href="#Thread-ThreadGroup-group-String-name" class="headerlink" title="Thread(ThreadGroup group,,String name)"></a>Thread(ThreadGroup group,,String name)</h6><hr>
+<h2 id="第二节：线程的父子关系"><a href="#第二节：线程的父子关系" class="headerlink" title="第二节：线程的父子关系"></a>第二节：线程的父子关系</h2><h6 id="任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程"><a href="#任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程" class="headerlink" title="任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程"></a>任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程</h6><h6 id="currentThread-查看当前线程"><a href="#currentThread-查看当前线程" class="headerlink" title="currentThread():查看当前线程"></a>currentThread():查看当前线程</h6><hr>
+<h2 id="第三节：Thread与ThreadGroup"><a href="#第三节：Thread与ThreadGroup" class="headerlink" title="第三节：Thread与ThreadGroup"></a>第三节：Thread与ThreadGroup</h2><ul>
+<li>main线程所在的ThreadGroup成为main</li>
+<li>构造一个线程的时候如果没有显式的指定ThreadGroup，那么他将和父线程在同一个Group中，拥有相同的优先级</li>
+</ul>
+<hr>
+<h2 id="第四节：Thread与RUNNABLE"><a href="#第四节：Thread与RUNNABLE" class="headerlink" title="第四节：Thread与RUNNABLE"></a>第四节：Thread与RUNNABLE</h2><h6 id="Runnable接口非常简单，只定义了一个无参数无返回的run方法"><a href="#Runnable接口非常简单，只定义了一个无参数无返回的run方法" class="headerlink" title="Runnable接口非常简单，只定义了一个无参数无返回的run方法"></a>Runnable接口非常简单，只定义了一个无参数无返回的run方法</h6><h6 id="创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑"><a href="#创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑" class="headerlink" title="创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑"></a>创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑</h6><hr>
+<h2 id="第五节：守护线程"><a href="#第五节：守护线程" class="headerlink" title="第五节：守护线程"></a>第五节：守护线程</h2><h3 id="1、示例"><a href="#1、示例" class="headerlink" title="1、示例"></a>1、示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) </span><br><span class="line">	&#123;</span><br><span class="line">		 	Thread thread=new Thread(()-&gt;</span><br><span class="line">			 	&#123;</span><br><span class="line">			 		while(true)</span><br><span class="line">			 		&#123;</span><br><span class="line">			 			try</span><br><span class="line">			 			&#123;</span><br><span class="line">			 				Thread.sleep(1);</span><br><span class="line">			 			&#125;</span><br><span class="line">			 			catch (Exception e) &#123;</span><br><span class="line">			 				e.printStackTrace();</span><br><span class="line">							// TODO: handle exception</span><br><span class="line">						&#125;</span><br><span class="line">			 		&#125;</span><br><span class="line">			 	&#125;</span><br><span class="line">		 	);</span><br><span class="line">		 	thread.setDaemon(true);//设为守护线程</span><br><span class="line">		 	thread.start();</span><br><span class="line">		 	</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、-守护线程的作用"><a href="#2、-守护线程的作用" class="headerlink" title="2、 守护线程的作用"></a>2、 守护线程的作用</h3><h6 id="正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。"><a href="#正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。" class="headerlink" title="正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。"></a>正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。</h6>
+        
+      </div>
+    </article>
+  
+    <article class="post">
+      <div class="post-meta">
         <span class="post-time">2018-10-08</span>
       </div>
       <div class="post-title">

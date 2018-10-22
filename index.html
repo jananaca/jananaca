@@ -105,6 +105,141 @@
   
     <article class="post">
       <div class="post-meta">
+        <span class="post-time">2018-10-22</span>
+      </div>
+      <div class="post-title">
+        
+          <a class="post-title-link" href="/2018/10/22/工厂模式/">
+            
+              工厂模式简介
+            
+          </a>
+          
+        
+        <div class="post-tags">
+          
+        </div>
+      </div>
+      <div class="post-content">
+
+        
+
+        
+        <h6 id="简介：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到子类。"><a href="#简介：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到子类。" class="headerlink" title="简介：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到子类。"></a>简介：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到子类。</h6><h6 id="使用场景：明确的计划不同条件下创建不同的实例。"><a href="#使用场景：明确的计划不同条件下创建不同的实例。" class="headerlink" title="使用场景：明确的计划不同条件下创建不同的实例。"></a>使用场景：明确的计划不同条件下创建不同的实例。</h6><h6 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h6><ul>
+<li>调用者想创建一个对象，只需要知道名称就可以</li>
+<li>扩展性高</li>
+<li>可以屏蔽产品的具体实现。<h6 id="缺点：每增加一个商品就会增加一个类，使系统结构变得复杂，依赖性强"><a href="#缺点：每增加一个商品就会增加一个类，使系统结构变得复杂，依赖性强" class="headerlink" title="缺点：每增加一个商品就会增加一个类，使系统结构变得复杂，依赖性强"></a>缺点：每增加一个商品就会增加一个类，使系统结构变得复杂，依赖性强</h6></li>
+</ul>
+<hr>
+<p>使用示例：日志</p>
+
+        
+      </div>
+    </article>
+  
+    <article class="post">
+      <div class="post-meta">
+        <span class="post-time">2018-10-22</span>
+      </div>
+      <div class="post-title">
+        
+          <a class="post-title-link" href="/2018/10/22/ThreadAPI介绍/">
+            
+              Untitled
+            
+          </a>
+          
+        
+        <div class="post-tags">
+          
+        </div>
+      </div>
+      <div class="post-content">
+
+        
+
+        
+        <hr>
+<h2 id="Thread-API"><a href="#Thread-API" class="headerlink" title="Thread API"></a>Thread API</h2><h2 id="线程sleep"><a href="#线程sleep" class="headerlink" title="线程sleep"></a>线程sleep</h2><h4 id="sleep方法重载"><a href="#sleep方法重载" class="headerlink" title="sleep方法重载"></a>sleep方法重载</h4><ul>
+<li>public static void sleep(long millis) throws InterruptedException//传入毫秒数</li>
+<li>public static void sleep(long millis，int nanos) throws InterruptedException//传入毫秒数和纳秒数<h4 id="sleep方法介绍"><a href="#sleep方法介绍" class="headerlink" title="sleep方法介绍"></a>sleep方法介绍</h4>sleep方法会使当前线程进入指定毫秒数的休眠，暂停执行，虽然给定了一个休眠的时间，但是最终要以系统的定时器和调度器的精度为准。休眠有一个重要特性，那就是其不会放弃monitor锁的所有权。<br>注：monitor锁：监视锁，每一个对象都具有唯一的一个监视锁，同时只有一个线程可以拥有一个对象的监视锁。一个线程通过调用某个对象的wait方法来释放monitor进入休眠状态。<h5 id="获取监视锁的三种方法"><a href="#获取监视锁的三种方法" class="headerlink" title="获取监视锁的三种方法"></a>获取监视锁的三种方法</h5></li>
+<li>public synchronize a () {}  执行该对象的同步方法</li>
+<li>synchronize(obj) {} 执行该对象的同步块</li>
+<li>public static synchronize b(){} 执行某个类的同步方法<h6 id="sleep只执行当前线程的休眠，互不影响"><a href="#sleep只执行当前线程的休眠，互不影响" class="headerlink" title="sleep只执行当前线程的休眠，互不影响"></a>sleep只执行当前线程的休眠，互不影响</h6><h4 id="TimeUnit替代Thread-sleep"><a href="#TimeUnit替代Thread-sleep" class="headerlink" title="TimeUnit替代Thread.sleep()"></a>TimeUnit替代Thread.sleep()</h4>优势：省去了时间的换算步骤<h6 id="例：TimeUnit-HOURS-sleep-3-休眠三小时"><a href="#例：TimeUnit-HOURS-sleep-3-休眠三小时" class="headerlink" title="例：TimeUnit.HOURS.sleep(3):休眠三小时"></a>例：TimeUnit.HOURS.sleep(3):休眠三小时</h6><h2 id="线程yield"><a href="#线程yield" class="headerlink" title="线程yield"></a>线程yield</h2><h4 id="yield方法介绍"><a href="#yield方法介绍" class="headerlink" title="yield方法介绍"></a>yield方法介绍</h4>yield方法属于启发式的方法，会提醒调度器愿意放弃当前CPU资源。如果CPU不紧张，则会忽略这个提醒。<br>就比如和调度器说你先忙，我不着急，等你忙完了再帮我。<h6 id="注：调用yield会使线程从RUNNING状态切换到RUNNABLE状态，而sleep则会使线程短暂的进入block状态。"><a href="#注：调用yield会使线程从RUNNING状态切换到RUNNABLE状态，而sleep则会使线程短暂的进入block状态。" class="headerlink" title="注：调用yield会使线程从RUNNING状态切换到RUNNABLE状态，而sleep则会使线程短暂的进入block状态。"></a>注：调用yield会使线程从RUNNING状态切换到RUNNABLE状态，而sleep则会使线程短暂的进入block状态。</h6><h2 id="设置线程的优先级"><a href="#设置线程的优先级" class="headerlink" title="设置线程的优先级"></a>设置线程的优先级</h2><h4 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h4></li>
+<li>public final void setPriority(int newPriority)//设置优先级</li>
+<li>public final int getPriority()//获取优先级<h4 id="优先级介绍"><a href="#优先级介绍" class="headerlink" title="优先级介绍"></a>优先级介绍</h4></li>
+<li>优先级越大，优先级越高</li>
+<li>当CPU比较繁忙的时候，高的优先级可能会获得更多执行的机会，否则几乎没有区别。<h4 id="优先级源码分析"><a href="#优先级源码分析" class="headerlink" title="优先级源码分析"></a>优先级源码分析</h4></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public final void setPriority(int newPriority)</span><br><span class="line">&#123;</span><br><span class="line">    ThreadGroup g;</span><br><span class="line">    checkAccess();</span><br><span class="line">    if(newPriority&gt;MAX_PRIORITY||nrePriority&lt;MIN_PRIORITY)</span><br><span class="line">    &#123;</span><br><span class="line">        throw new IllegalArgumentException();</span><br><span class="line">    &#125;</span><br><span class="line">    if((g=getThreadGroup())!=null)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        if(newPriority&gt;g.getMaxPriority())</span><br><span class="line">        &#123;</span><br><span class="line">            newPriority=g.getMaxPriority();</span><br><span class="line">        &#125;</span><br><span class="line">        setPriority0（priority=newPriority）;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有源码可知，线程的最大优先级为当前线程组所允许的最大优先级，如果超过了则会失效取代为当前线程组的最大优先级。</p>
+<h2 id="获取当前线程"><a href="#获取当前线程" class="headerlink" title="获取当前线程"></a>获取当前线程</h2><p>函数：Thread.currentThread()</p>
+<h2 id="获取线程ID"><a href="#获取线程ID" class="headerlink" title="获取线程ID"></a>获取线程ID</h2><p>函数：public long getId()</p>
+<h2 id="设置线程上下文类加载器"><a href="#设置线程上下文类加载器" class="headerlink" title="设置线程上下文类加载器"></a>设置线程上下文类加载器</h2><ul>
+<li>public ClassLoader getContextClassLoader()//获取线程上下文的类加载器，简单说就是由哪个类加载器加载的</li>
+<li>public void setContextClassLoader(ClassLoader cl)//设置类加载器<h2 id="线程interrupt"><a href="#线程interrupt" class="headerlink" title="线程interrupt"></a>线程interrupt</h2></li>
+<li>public void interrupt() // 打断线程阻塞</li>
+<li>public static boolean interrupted()// 判断线程是否阻塞，并去掉阻塞标识</li>
+<li>public boolean isInterrupted()// 判断线程是否被阻塞<h4 id="interrupt"><a href="#interrupt" class="headerlink" title="interrupt"></a>interrupt</h4><h6 id="线程进入阻塞方式"><a href="#线程进入阻塞方式" class="headerlink" title="线程进入阻塞方式"></a>线程进入阻塞方式</h6></li>
+<li>Object的wait()方法</li>
+<li>Object的wait(long)方法</li>
+<li>Object的wait(long,int)方法</li>
+<li>Thread的sleep(long)方法</li>
+<li>Thread的sleep(long,int)方法</li>
+<li>Thread的join方法</li>
+<li>Thread的join(long,int)方法</li>
+<li>Thread的join(long)方法</li>
+<li>InterruptibleChannel的io操作</li>
+<li>Selector的wakeup方法<h2 id="线程join"><a href="#线程join" class="headerlink" title="线程join"></a>线程join</h2>join方法简介：join某个线程A,会使当前线程B进入等待，直到线程A结束或到达规定时间。在此期间B线程是处于blocked状态的。</li>
+</ul>
+
+        
+      </div>
+    </article>
+  
+    <article class="post">
+      <div class="post-meta">
+        <span class="post-time">2018-10-22</span>
+      </div>
+      <div class="post-title">
+        
+          <a class="post-title-link" href="/2018/10/22/Thread源码研究/">
+            
+              Thread源码
+            
+          </a>
+          
+        
+        <div class="post-tags">
+          
+        </div>
+      </div>
+      <div class="post-content">
+
+        
+
+        
+        <p>##start方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void start() &#123;</span><br><span class="line">        /**</span><br><span class="line">         * This method is not invoked for the main method thread or &quot;system&quot;</span><br><span class="line">         * group threads created/set up by the VM. Any new functionality added</span><br><span class="line">         * to this method in the future may have to also be added to the VM.</span><br><span class="line">         *==</span><br><span class="line">         ==* A zero status value corresponds to state &quot;NEW&quot;.</span><br><span class="line">         */</span><br><span class="line">        if (threadStatus != 0)</span><br><span class="line">            throw new IllegalThreadStateException();</span><br><span class="line"></span><br><span class="line">        /* Notify the group that this thread is about to be started</span><br><span class="line">         * so that it can be added to the group&apos;s list of threads</span><br><span class="line">         * and the group&apos;s unstarted count can be decremented. */</span><br><span class="line">        group.add(this);</span><br><span class="line"></span><br><span class="line">        boolean started = false;</span><br><span class="line">        try &#123;</span><br><span class="line">            start0();</span><br><span class="line">            started = true;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                if (!started) &#123;</span><br><span class="line">                    group.threadStartFailed(this);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; catch (Throwable ignore) &#123;</span><br><span class="line">                /* do nothing. If start0 threw a Throwable then</span><br><span class="line">                  it will be passed up the call stack */</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="这一个是Thread中start-方法的源码，我们由源码可以看出，当Thread执行NEW方法时，threadstatus变为0，否则将会报IllegalThreadStateException错误，可以得出Thread不能start-两次及以上，否则同样会出现IllegalThreadStateException"><a href="#这一个是Thread中start-方法的源码，我们由源码可以看出，当Thread执行NEW方法时，threadstatus变为0，否则将会报IllegalThreadStateException错误，可以得出Thread不能start-两次及以上，否则同样会出现IllegalThreadStateException" class="headerlink" title="这一个是Thread中start()方法的源码，我们由源码可以看出，当Thread执行NEW方法时，threadstatus变为0，否则将会报IllegalThreadStateException错误，可以得出Thread不能start()两次及以上，否则同样会出现IllegalThreadStateException"></a>这一个是Thread中start()方法的源码，我们由源码可以看出，当Thread执行NEW方法时，threadstatus变为0，否则将会报IllegalThreadStateException错误，可以得出Thread不能start()两次及以上，否则同样会出现IllegalThreadStateException</h6><p>至于start0()这个方法，是一个native,我们后续在研究（毕竟没啥基础，大家见谅，我们一步一步的来）。</p>
+<hr>
+<h2 id="Thread的构造函数"><a href="#Thread的构造函数" class="headerlink" title="Thread的构造函数"></a>Thread的构造函数</h2><h6 id="Thread的构造函数一共有9个，下面我们来看一下源码："><a href="#Thread的构造函数一共有9个，下面我们来看一下源码：" class="headerlink" title="Thread的构造函数一共有9个，下面我们来看一下源码："></a>Thread的构造函数一共有9个，下面我们来看一下源码：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br></pre></td><td class="code"><pre><span class="line">public Thread() &#123;</span><br><span class="line">    init(null, null, &quot;Thread-&quot; + nextThreadNum(), 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Allocates a new &#123;@code Thread&#125; object. This constructor has the same</span><br><span class="line"> * effect as &#123;@linkplain #Thread(ThreadGroup,Runnable,String) Thread&#125;</span><br><span class="line"> * &#123;@code (null, target, gname)&#125;, where &#123;@code gname&#125; is a newly generated</span><br><span class="line"> * name. Automatically generated names are of the form</span><br><span class="line"> * &#123;@code &quot;Thread-&quot;+&#125;&lt;i&gt;n&lt;/i&gt;, where &lt;i&gt;n&lt;/i&gt; is an integer.</span><br><span class="line"> *</span><br><span class="line"> * @param  target</span><br><span class="line"> *         the object whose &#123;@code run&#125; method is invoked when this thread</span><br><span class="line"> *         is started. If &#123;@code null&#125;, this classes &#123;@code run&#125; method does</span><br><span class="line"> *         nothing.</span><br><span class="line"> */</span><br><span class="line">public Thread(Runnable target) &#123;</span><br><span class="line">    init(null, target, &quot;Thread-&quot; + nextThreadNum(), 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Creates a new Thread that inherits the given AccessControlContext.</span><br><span class="line"> * This is not a public constructor.</span><br><span class="line"> */</span><br><span class="line">public Thread(Runnable target, AccessControlContext acc) &#123;</span><br><span class="line">    init(null, target, &quot;Thread-&quot; + nextThreadNum(), 0, acc);</span><br><span class="line">&#125;</span><br><span class="line">public Thread(ThreadGroup group, Runnable target) &#123;</span><br><span class="line">    init(group, target, &quot;Thread-&quot; + nextThreadNum(), 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Allocates a new &#123;@code Thread&#125; object. This constructor has the same</span><br><span class="line"> * effect as &#123;@linkplain #Thread(ThreadGroup,Runnable,String) Thread&#125;</span><br><span class="line"> * &#123;@code (null, null, name)&#125;.</span><br><span class="line"> *</span><br><span class="line"> * @param   name</span><br><span class="line"> *          the name of the new thread</span><br><span class="line"> */</span><br><span class="line">public Thread(String name) &#123;</span><br><span class="line">    init(null, null, name, 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Allocates a new &#123;@code Thread&#125; object. This constructor has the same</span><br><span class="line"> * effect as &#123;@linkplain #Thread(ThreadGroup,Runnable,String) Thread&#125;</span><br><span class="line"> * &#123;@code (group, null, name)&#125;.</span><br><span class="line"> *</span><br><span class="line"> * @param  group</span><br><span class="line"> *         the thread group. If &#123;@code null&#125; and there is a security</span><br><span class="line"> *         manager, the group is determined by &#123;@linkplain</span><br><span class="line"> *         SecurityManager#getThreadGroup SecurityManager.getThreadGroup()&#125;.</span><br><span class="line"> *         If there is not a security manager or &#123;@code</span><br><span class="line"> *         SecurityManager.getThreadGroup()&#125; returns &#123;@code null&#125;, the group</span><br><span class="line"> *         is set to the current thread&apos;s thread group.</span><br><span class="line"> *</span><br><span class="line"> * @param  name</span><br><span class="line"> *         the name of the new thread</span><br><span class="line"> *</span><br><span class="line"> * @throws  SecurityException</span><br><span class="line"> *          if the current thread cannot create a thread in the specified</span><br><span class="line"> *          thread group</span><br><span class="line"> */</span><br><span class="line">public Thread(ThreadGroup group, String name) &#123;</span><br><span class="line">    init(group, null, name, 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Allocates a new &#123;@code Thread&#125; object. This constructor has the same</span><br><span class="line"> * effect as &#123;@linkplain #Thread(ThreadGroup,Runnable,String) Thread&#125;</span><br><span class="line"> * &#123;@code (null, target, name)&#125;.</span><br><span class="line"> *</span><br><span class="line"> * @param  target</span><br><span class="line"> *         the object whose &#123;@code run&#125; method is invoked when this thread</span><br><span class="line"> *         is started. If &#123;@code null&#125;, this thread&apos;s run method is invoked.</span><br><span class="line"> *</span><br><span class="line"> * @param  name</span><br><span class="line"> *         the name of the new thread</span><br><span class="line"> */</span><br><span class="line">public Thread(Runnable target, String name) &#123;</span><br><span class="line">    init(null, target, name, 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Allocates a new &#123;@code Thread&#125; object so that it has &#123;@code target&#125;</span><br><span class="line"> * as its run object, has the specified &#123;@code name&#125; as its name,</span><br><span class="line"> * and belongs to the thread group referred to by &#123;@code group&#125;.</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;If there is a security manager, its</span><br><span class="line"> * &#123;@link SecurityManager#checkAccess(ThreadGroup) checkAccess&#125;</span><br><span class="line"> * method is invoked with the ThreadGroup as its argument.</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;In addition, its &#123;@code checkPermission&#125; method is invoked with</span><br><span class="line"> * the &#123;@code RuntimePermission(&quot;enableContextClassLoaderOverride&quot;)&#125;</span><br><span class="line"> * permission when invoked directly or indirectly by the constructor</span><br><span class="line"> * of a subclass which overrides the &#123;@code getContextClassLoader&#125;</span><br><span class="line"> * or &#123;@code setContextClassLoader&#125; methods.</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;The priority of the newly created thread is set equal to the</span><br><span class="line"> * priority of the thread creating it, that is, the currently running</span><br><span class="line"> * thread. The method &#123;@linkplain #setPriority setPriority&#125; may be</span><br><span class="line"> * used to change the priority to a new value.</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;The newly created thread is initially marked as being a daemon</span><br><span class="line"> * thread if and only if the thread creating it is currently marked</span><br><span class="line"> * as a daemon thread. The method &#123;@linkplain #setDaemon setDaemon&#125;</span><br><span class="line"> * may be used to change whether or not a thread is a daemon.</span><br><span class="line"> *</span><br><span class="line"> * @param  group</span><br><span class="line"> *         the thread group. If &#123;@code null&#125; and there is a security</span><br><span class="line"> *         manager, the group is determined by &#123;@linkplain</span><br><span class="line"> *         SecurityManager#getThreadGroup SecurityManager.getThreadGroup()&#125;.</span><br><span class="line"> *         If there is not a security manager or &#123;@code</span><br><span class="line"> *         SecurityManager.getThreadGroup()&#125; returns &#123;@code null&#125;, the group</span><br><span class="line"> *         is set to the current thread&apos;s thread group.</span><br><span class="line"> *</span><br><span class="line"> * @param  target</span><br><span class="line"> *         the object whose &#123;@code run&#125; method is invoked when this thread</span><br><span class="line"> *         is started. If &#123;@code null&#125;, this thread&apos;s run method is invoked.</span><br><span class="line"> *</span><br><span class="line"> * @param  name</span><br><span class="line"> *         the name of the new thread</span><br><span class="line"> *</span><br><span class="line"> * @throws  SecurityException</span><br><span class="line"> *          if the current thread cannot create a thread in the specified</span><br><span class="line"> *          thread group or cannot override the context class loader methods.</span><br><span class="line"> */</span><br><span class="line">public Thread(ThreadGroup group, Runnable target, String name) &#123;</span><br><span class="line">    init(group, target, name, 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Allocates a new &#123;@code Thread&#125; object so that it has &#123;@code target&#125;</span><br><span class="line"> * as its run object, has the specified &#123;@code name&#125; as its name,</span><br><span class="line"> * and belongs to the thread group referred to by &#123;@code group&#125;, and has</span><br><span class="line"> * the specified &lt;i&gt;stack size&lt;/i&gt;.</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;This constructor is identical to &#123;@link</span><br><span class="line"> * #Thread(ThreadGroup,Runnable,String)&#125; with the exception of the fact</span><br><span class="line"> * that it allows the thread stack size to be specified.  The stack size</span><br><span class="line"> * is the approximate number of bytes of address space that the virtual</span><br><span class="line"> * machine is to allocate for this thread&apos;s stack.  &lt;b&gt;The effect of the</span><br><span class="line"> * &#123;@code stackSize&#125; parameter, if any, is highly platform dependent.&lt;/b&gt;</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;On some platforms, specifying a higher value for the</span><br><span class="line"> * &#123;@code stackSize&#125; parameter may allow a thread to achieve greater</span><br><span class="line"> * recursion depth before throwing a &#123;@link StackOverflowError&#125;.</span><br><span class="line"> * Similarly, specifying a lower value may allow a greater number of</span><br><span class="line"> * threads to exist concurrently without throwing an &#123;@link</span><br><span class="line"> * OutOfMemoryError&#125; (or other internal error).  The details of</span><br><span class="line"> * the relationship between the value of the &lt;tt&gt;stackSize&lt;/tt&gt; parameter</span><br><span class="line"> * and the maximum recursion depth and concurrency level are</span><br><span class="line"> * platform-dependent.  &lt;b&gt;On some platforms, the value of the</span><br><span class="line"> * &#123;@code stackSize&#125; parameter may have no effect whatsoever.&lt;/b&gt;</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;The virtual machine is free to treat the &#123;@code stackSize&#125;</span><br><span class="line"> * parameter as a suggestion.  If the specified value is unreasonably low</span><br><span class="line"> * for the platform, the virtual machine may instead use some</span><br><span class="line"> * platform-specific minimum value; if the specified value is unreasonably</span><br><span class="line"> * high, the virtual machine may instead use some platform-specific</span><br><span class="line"> * maximum.  Likewise, the virtual machine is free to round the specified</span><br><span class="line"> * value up or down as it sees fit (or to ignore it completely).</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;Specifying a value of zero for the &#123;@code stackSize&#125; parameter will</span><br><span class="line"> * cause this constructor to behave exactly like the</span><br><span class="line"> * &#123;@code Thread(ThreadGroup, Runnable, String)&#125; constructor.</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;&lt;i&gt;Due to the platform-dependent nature of the behavior of this</span><br><span class="line"> * constructor, extreme care should be exercised in its use.</span><br><span class="line"> * The thread stack size necessary to perform a given computation will</span><br><span class="line"> * likely vary from one JRE implementation to another.  In light of this</span><br><span class="line"> * variation, careful tuning of the stack size parameter may be required,</span><br><span class="line"> * and the tuning may need to be repeated for each JRE implementation on</span><br><span class="line"> * which an application is to run.&lt;/i&gt;</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;Implementation note: Java platform implementers are encouraged to</span><br><span class="line"> * document their implementation&apos;s behavior with respect to the</span><br><span class="line"> * &#123;@code stackSize&#125; parameter.</span><br><span class="line"> *</span><br><span class="line"> *</span><br><span class="line"> * @param  group</span><br><span class="line"> *         the thread group. If &#123;@code null&#125; and there is a security</span><br><span class="line"> *         manager, the group is determined by &#123;@linkplain</span><br><span class="line"> *         SecurityManager#getThreadGroup SecurityManager.getThreadGroup()&#125;.</span><br><span class="line"> *         If there is not a security manager or &#123;@code</span><br><span class="line"> *         SecurityManager.getThreadGroup()&#125; returns &#123;@code null&#125;, the group</span><br><span class="line"> *         is set to the current thread&apos;s thread group.</span><br><span class="line"> *</span><br><span class="line"> * @param  target</span><br><span class="line"> *         the object whose &#123;@code run&#125; method is invoked when this thread</span><br><span class="line"> *         is started. If &#123;@code null&#125;, this thread&apos;s run method is invoked.</span><br><span class="line"> *</span><br><span class="line"> * @param  name</span><br><span class="line"> *         the name of the new thread</span><br><span class="line"> *</span><br><span class="line"> * @param  stackSize</span><br><span class="line"> *         the desired stack size for the new thread, or zero to indicate</span><br><span class="line"> *         that this parameter is to be ignored.</span><br><span class="line"> *</span><br><span class="line"> * @throws  SecurityException</span><br><span class="line"> *          if the current thread cannot create a thread in the specified</span><br><span class="line"> *          thread group</span><br><span class="line"> *</span><br><span class="line"> * @since 1.4</span><br><span class="line"> */</span><br><span class="line">public Thread(ThreadGroup group, Runnable target, String name,</span><br><span class="line">              long stackSize) &#123;</span><br><span class="line">    init(group, target, name, stackSize);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会发现他们其实都是用的同一个方法Init(),只是传入的数据不一样，同样看出Thread的默认命名规则：Thread-为前缀，后面加上线程的数。<br>我们来看一下Init()这个方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">    private void init(ThreadGroup g, Runnable target, String name,</span><br><span class="line">                  long stackSize, AccessControlContext acc) &#123;</span><br><span class="line">    if (name == null) &#123;</span><br><span class="line">        throw new NullPointerException(&quot;name cannot be null&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    this.name = name.toCharArray();</span><br><span class="line"></span><br><span class="line">    Thread parent = currentThread();</span><br><span class="line">    SecurityManager security = System.getSecurityManager();</span><br><span class="line">    if (g == null) &#123;</span><br><span class="line">        /* Determine if it&apos;s an applet or not */</span><br><span class="line"></span><br><span class="line">        /* If there is a security manager, ask the security manager</span><br><span class="line">           what to do. */</span><br><span class="line">        if (security != null) &#123;</span><br><span class="line">            g = security.getThreadGroup();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /* If the security doesn&apos;t have a strong opinion of the matter</span><br><span class="line">           use the parent thread group. */</span><br><span class="line">        if (g == null) &#123;</span><br><span class="line">            g = parent.getThreadGroup();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* checkAccess regardless of whether or not threadgroup is</span><br><span class="line">       explicitly passed in. */</span><br><span class="line">    g.checkAccess();</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * Do we have the required permissions?</span><br><span class="line">     */</span><br><span class="line">    if (security != null) &#123;</span><br><span class="line">        if (isCCLOverridden(getClass())) &#123;</span><br><span class="line">            security.checkPermission(SUBCLASS_IMPLEMENTATION_PERMISSION);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    g.addUnstarted();</span><br><span class="line"></span><br><span class="line">    this.group = g;</span><br><span class="line">    this.daemon = parent.isDaemon();</span><br><span class="line">    this.priority = parent.getPriority();</span><br><span class="line">    if (security == null || isCCLOverridden(parent.getClass()))</span><br><span class="line">        this.contextClassLoader = parent.getContextClassLoader();</span><br><span class="line">    else</span><br><span class="line">        this.contextClassLoader = parent.contextClassLoader;</span><br><span class="line">    this.inheritedAccessControlContext =</span><br><span class="line">            acc != null ? acc : AccessController.getContext();</span><br><span class="line">    this.target = target;</span><br><span class="line">    setPriority(priority);</span><br><span class="line">    if (parent.inheritableThreadLocals != null)</span><br><span class="line">        this.inheritableThreadLocals =</span><br><span class="line">            ThreadLocal.createInheritedMap(parent.inheritableThreadLocals);</span><br><span class="line">    /* Stash the specified stack size in case the VM cares */</span><br><span class="line">    this.stackSize = stackSize;</span><br><span class="line"></span><br><span class="line">    /* Set thread ID */</span><br><span class="line">    tid = nextThreadID();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>由Thread parent = currentThread();可以看出，线程的默认父线程就是新建Thread对象的线程。</li>
+<li>由代码可知，Thread的默认ThreadGroup是系统默认的Thread Group，如果没有，则设为父线程的线程组。</li>
+<li>Thread的默认优先级为父线程的优先级，最大为10.最小为1，默认为5</li>
+<li>Thread默认的类加载器同样为父线程的类加载器</li>
+<li>Thread的ID是递增的。<h6 id="请多指教"><a href="#请多指教" class="headerlink" title="请多指教"></a>请多指教</h6></li>
+</ul>
+
+        
+      </div>
+    </article>
+  
+    <article class="post">
+      <div class="post-meta">
         <span class="post-time">2018-10-10</span>
       </div>
       <div class="post-title">
@@ -268,33 +403,6 @@
       </div>
       <div class="post-title">
         
-          <a class="post-title-link" href="/2018/10/10/python基础：列表/">
-            
-              python基础：列表
-            
-          </a>
-          
-        
-        <div class="post-tags">
-          
-        </div>
-      </div>
-      <div class="post-content">
-
-        
-
-        
-        <h6 id="append-列表最后追加元素"><a href="#append-列表最后追加元素" class="headerlink" title="append:列表最后追加元素"></a>append:列表最后追加元素</h6><h6 id="extend-集合合并"><a href="#extend-集合合并" class="headerlink" title="extend:集合合并"></a>extend:集合合并</h6><h6 id="insert-index-元素-：插入，可自定位置"><a href="#insert-index-元素-：插入，可自定位置" class="headerlink" title="insert:[index,元素]：插入，可自定位置"></a>insert:[index,元素]：插入，可自定位置</h6><h6 id="in-是否在当前列表中"><a href="#in-是否在当前列表中" class="headerlink" title="in:是否在当前列表中"></a>in:是否在当前列表中</h6><h6 id="not-in-不在"><a href="#not-in-不在" class="headerlink" title="not in 不在"></a>not in 不在</h6><h6 id="index-返回某个元素的下表位"><a href="#index-返回某个元素的下表位" class="headerlink" title="index:返回某个元素的下表位"></a>index:返回某个元素的下表位</h6><h6 id="count-统计出现次数"><a href="#count-统计出现次数" class="headerlink" title="count:统计出现次数"></a>count:统计出现次数</h6><h6 id="del-index-根据下表删除-del-my-list-2"><a href="#del-index-根据下表删除-del-my-list-2" class="headerlink" title="del(index) 根据下表删除 del my_list[2]"></a>del(index) 根据下表删除 del my_list[2]</h6><h6 id="pop-删除最后一个元素"><a href="#pop-删除最后一个元素" class="headerlink" title="pop:删除最后一个元素"></a>pop:删除最后一个元素</h6><h6 id="remove-删除元素内容-第一个"><a href="#remove-删除元素内容-第一个" class="headerlink" title="remove:删除元素内容  第一个"></a>remove:删除元素内容  第一个</h6><h6 id="sort排序-参数reverse-true-倒序"><a href="#sort排序-参数reverse-true-倒序" class="headerlink" title="sort排序  参数reverse=true:倒序"></a>sort排序  参数reverse=true:倒序</h6><h6 id="reverse-倒置"><a href="#reverse-倒置" class="headerlink" title="reverse:倒置"></a>reverse:倒置</h6>
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <div class="post-meta">
-        <span class="post-time">2018-10-10</span>
-      </div>
-      <div class="post-title">
-        
           <a class="post-title-link" href="/2018/10/10/python基础：字符串/">
             
               python基础：字符串
@@ -325,6 +433,33 @@
       </div>
       <div class="post-title">
         
+          <a class="post-title-link" href="/2018/10/10/python基础：列表/">
+            
+              python基础：列表
+            
+          </a>
+          
+        
+        <div class="post-tags">
+          
+        </div>
+      </div>
+      <div class="post-content">
+
+        
+
+        
+        <h6 id="append-列表最后追加元素"><a href="#append-列表最后追加元素" class="headerlink" title="append:列表最后追加元素"></a>append:列表最后追加元素</h6><h6 id="extend-集合合并"><a href="#extend-集合合并" class="headerlink" title="extend:集合合并"></a>extend:集合合并</h6><h6 id="insert-index-元素-：插入，可自定位置"><a href="#insert-index-元素-：插入，可自定位置" class="headerlink" title="insert:[index,元素]：插入，可自定位置"></a>insert:[index,元素]：插入，可自定位置</h6><h6 id="in-是否在当前列表中"><a href="#in-是否在当前列表中" class="headerlink" title="in:是否在当前列表中"></a>in:是否在当前列表中</h6><h6 id="not-in-不在"><a href="#not-in-不在" class="headerlink" title="not in 不在"></a>not in 不在</h6><h6 id="index-返回某个元素的下表位"><a href="#index-返回某个元素的下表位" class="headerlink" title="index:返回某个元素的下表位"></a>index:返回某个元素的下表位</h6><h6 id="count-统计出现次数"><a href="#count-统计出现次数" class="headerlink" title="count:统计出现次数"></a>count:统计出现次数</h6><h6 id="del-index-根据下表删除-del-my-list-2"><a href="#del-index-根据下表删除-del-my-list-2" class="headerlink" title="del(index) 根据下表删除 del my_list[2]"></a>del(index) 根据下表删除 del my_list[2]</h6><h6 id="pop-删除最后一个元素"><a href="#pop-删除最后一个元素" class="headerlink" title="pop:删除最后一个元素"></a>pop:删除最后一个元素</h6><h6 id="remove-删除元素内容-第一个"><a href="#remove-删除元素内容-第一个" class="headerlink" title="remove:删除元素内容  第一个"></a>remove:删除元素内容  第一个</h6><h6 id="sort排序-参数reverse-true-倒序"><a href="#sort排序-参数reverse-true-倒序" class="headerlink" title="sort排序  参数reverse=true:倒序"></a>sort排序  参数reverse=true:倒序</h6><h6 id="reverse-倒置"><a href="#reverse-倒置" class="headerlink" title="reverse:倒置"></a>reverse:倒置</h6>
+        
+      </div>
+    </article>
+  
+    <article class="post">
+      <div class="post-meta">
+        <span class="post-time">2018-10-10</span>
+      </div>
+      <div class="post-title">
+        
           <a class="post-title-link" href="/2018/10/10/python基础：元组字典/">
             
               python基础：元组/字典
@@ -343,203 +478,6 @@
         
         <h3 id="元祖：Tuple"><a href="#元祖：Tuple" class="headerlink" title="元祖：Tuple"></a>元祖：Tuple</h3><h6 id="元素不能修改"><a href="#元素不能修改" class="headerlink" title="元素不能修改"></a>元素不能修改</h6><h6 id="定义使用小括号"><a href="#定义使用小括号" class="headerlink" title="定义使用小括号"></a>定义使用小括号</h6><h6 id="index函数：返回某个序列的是"><a href="#index函数：返回某个序列的是" class="headerlink" title="index函数：返回某个序列的是"></a>index函数：返回某个序列的是</h6><h6 id="count函数：返回总数"><a href="#count函数：返回总数" class="headerlink" title="count函数：返回总数"></a>count函数：返回总数</h6><hr>
 <h3 id="字典-key-value-dict"><a href="#字典-key-value-dict" class="headerlink" title="字典(key,.value):dict"></a>字典(key,.value):dict</h3><h6 id="get获取键值不存在：返回null"><a href="#get获取键值不存在：返回null" class="headerlink" title="get获取键值不存在：返回null"></a>get获取键值不存在：返回null</h6><h6 id="删除：del"><a href="#删除：del" class="headerlink" title="删除：del"></a>删除：del</h6><h6 id="len-键值对的个数"><a href="#len-键值对的个数" class="headerlink" title="len():键值对的个数"></a>len():键值对的个数</h6><h6 id="keys：返回所有key"><a href="#keys：返回所有key" class="headerlink" title="keys：返回所有key"></a>keys：返回所有key</h6><h6 id="values-返回所有值"><a href="#values-返回所有值" class="headerlink" title="values:返回所有值"></a>values:返回所有值</h6><h6 id="items-返回所有键值对"><a href="#items-返回所有键值对" class="headerlink" title="items:返回所有键值对"></a>items:返回所有键值对</h6><h6 id="has-key：是否存在该键"><a href="#has-key：是否存在该键" class="headerlink" title="has_key：是否存在该键"></a>has_key：是否存在该键</h6>
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <div class="post-meta">
-        <span class="post-time">2018-10-10</span>
-      </div>
-      <div class="post-title">
-        
-          <a class="post-title-link" href="/2018/10/10/python基础：文件操作/">
-            
-              python基础：文件操作
-            
-          </a>
-          
-        
-        <div class="post-tags">
-          
-        </div>
-      </div>
-      <div class="post-content">
-
-        
-
-        
-        <h3 id="文件打开"><a href="#文件打开" class="headerlink" title="文件打开"></a>文件打开</h3><h6 id="f-open-path-model"><a href="#f-open-path-model" class="headerlink" title="f=open(path,model)"></a>f=open(path,model)</h6><h6 id="r-只读模式，指针在开头"><a href="#r-只读模式，指针在开头" class="headerlink" title="r:只读模式，指针在开头"></a>r:只读模式，指针在开头</h6><h6 id="w-写入模式，文件存在则覆盖，否则新建"><a href="#w-写入模式，文件存在则覆盖，否则新建" class="headerlink" title="w:写入模式，文件存在则覆盖，否则新建"></a>w:写入模式，文件存在则覆盖，否则新建</h6><h6 id="a-追加模式，在文件末尾追加"><a href="#a-追加模式，在文件末尾追加" class="headerlink" title="a:追加模式，在文件末尾追加"></a>a:追加模式，在文件末尾追加</h6><h6 id="rb-只读二进制方式打开文件"><a href="#rb-只读二进制方式打开文件" class="headerlink" title="rb:只读二进制方式打开文件"></a>rb:只读二进制方式打开文件</h6><h6 id="wb-以二进制方式写入文件-编码"><a href="#wb-以二进制方式写入文件-编码" class="headerlink" title="wb:以二进制方式写入文件            编码"></a>wb:以二进制方式写入文件            编码</h6><h6 id="ab-以二进制方式追加"><a href="#ab-以二进制方式追加" class="headerlink" title="ab:以二进制方式追加"></a>ab:以二进制方式追加</h6><h6 id="r-读写文件，指针置于开头"><a href="#r-读写文件，指针置于开头" class="headerlink" title="r+:读写文件，指针置于开头"></a>r+:读写文件，指针置于开头</h6><h6 id="w-读写文件，覆盖"><a href="#w-读写文件，覆盖" class="headerlink" title="w+:读写文件，覆盖"></a>w+:读写文件，覆盖</h6><h6 id="a-：读写文件，追加"><a href="#a-：读写文件，追加" class="headerlink" title="a+：读写文件，追加"></a>a+：读写文件，追加</h6><h6 id="rb"><a href="#rb" class="headerlink" title="rb+"></a>rb+</h6><h6 id="wb"><a href="#wb" class="headerlink" title="wb+"></a>wb+</h6><hr>
-<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h6 id="读：read-可加入参数：字节数"><a href="#读：read-可加入参数：字节数" class="headerlink" title="读：read()可加入参数：字节数"></a>读：read()可加入参数：字节数</h6><h6 id="readlines-返回列表-读取所有行"><a href="#readlines-返回列表-读取所有行" class="headerlink" title="readlines:返回列表 读取所有行"></a>readlines:返回列表 读取所有行</h6><h6 id="readline"><a href="#readline" class="headerlink" title="readline:"></a>readline:</h6><h6 id="写：write"><a href="#写：write" class="headerlink" title="写：write()"></a>写：write()</h6><hr>
-<h3 id="关闭文件-重要"><a href="#关闭文件-重要" class="headerlink" title="关闭文件(重要)"></a>关闭文件(重要)</h3><h6 id="f-close"><a href="#f-close" class="headerlink" title="f.close()"></a>f.close()</h6><hr>
-<h3 id="io常用函数"><a href="#io常用函数" class="headerlink" title="io常用函数"></a>io常用函数</h3><h6 id="f-tell：获取指针当前位置"><a href="#f-tell：获取指针当前位置" class="headerlink" title="f.tell：获取指针当前位置"></a>f.tell：获取指针当前位置</h6><h6 id="f-seek-偏移量，方向-：移动指针"><a href="#f-seek-偏移量，方向-：移动指针" class="headerlink" title="f.seek(偏移量，方向)：移动指针"></a>f.seek(偏移量，方向)：移动指针</h6><h6 id="方向：0-从文件开头"><a href="#方向：0-从文件开头" class="headerlink" title="方向：0  从文件开头"></a>方向：0  从文件开头</h6><h6 id="1-当前位置"><a href="#1-当前位置" class="headerlink" title="1  当前位置"></a>1  当前位置</h6><h6 id="2-文件末尾-可能作废"><a href="#2-文件末尾-可能作废" class="headerlink" title="2  文件末尾    ///可能作废"></a>2  文件末尾    ///可能作废</h6><h6 id="os模块常用函数："><a href="#os模块常用函数：" class="headerlink" title="os模块常用函数："></a>os模块常用函数：</h6><h6 id="os-name-当前操作系统类型-windows-nt-linux-posix"><a href="#os-name-当前操作系统类型-windows-nt-linux-posix" class="headerlink" title="os.name:当前操作系统类型  windows:nt  linux:posix"></a>os.name:当前操作系统类型  windows:nt  linux:posix</h6><h6 id="os-getcwd-获取当前目录"><a href="#os-getcwd-获取当前目录" class="headerlink" title="os.getcwd:获取当前目录"></a>os.getcwd:获取当前目录</h6><h6 id="os-listdir-获取目录下文件名"><a href="#os-listdir-获取目录下文件名" class="headerlink" title="os.listdir:获取目录下文件名"></a>os.listdir:获取目录下文件名</h6><h6 id="os-rmdir-删除目录"><a href="#os-rmdir-删除目录" class="headerlink" title="os.rmdir:删除目录"></a>os.rmdir:删除目录</h6><h6 id="os-remove-删除文件"><a href="#os-remove-删除文件" class="headerlink" title="os.remove:删除文件"></a>os.remove:删除文件</h6><h6 id="os-mkdir-创建文件夹"><a href="#os-mkdir-创建文件夹" class="headerlink" title="os.mkdir:创建文件夹"></a>os.mkdir:创建文件夹</h6><h6 id="os-path-isfile-对象是否为文件"><a href="#os-path-isfile-对象是否为文件" class="headerlink" title="os.path.isfile():对象是否为文件"></a>os.path.isfile():对象是否为文件</h6><h6 id="os-path-isdir-对象是否为目录"><a href="#os-path-isdir-对象是否为目录" class="headerlink" title="os.path.isdir():对象是否为目录"></a>os.path.isdir():对象是否为目录</h6><h6 id="os-path-exists-对象是否存在"><a href="#os-path-exists-对象是否存在" class="headerlink" title="os.path.exists():对象是否存在"></a>os.path.exists():对象是否存在</h6><h6 id="os-path-split-返回路径的目录名和文件名"><a href="#os-path-split-返回路径的目录名和文件名" class="headerlink" title="os.path.split():返回路径的目录名和文件名"></a>os.path.split():返回路径的目录名和文件名</h6><h6 id="os-chdir-改变目录到指定目录"><a href="#os-chdir-改变目录到指定目录" class="headerlink" title="os.chdir:改变目录到指定目录"></a>os.chdir:改变目录到指定目录</h6><h6 id="os-path-getsize-查找文件大小"><a href="#os-path-getsize-查找文件大小" class="headerlink" title="os.path.getsize()查找文件大小"></a>os.path.getsize()查找文件大小</h6><h6 id="os-path-abspath-获取绝对路径"><a href="#os-path-abspath-获取绝对路径" class="headerlink" title="os.path.abspath:获取绝对路径"></a>os.path.abspath:获取绝对路径</h6><h6 id="os-path-join-path-name-链接目录名和文件名"><a href="#os-path-join-path-name-链接目录名和文件名" class="headerlink" title="os.path.join(path,name) 链接目录名和文件名"></a>os.path.join(path,name) 链接目录名和文件名</h6><h6 id="os-path-basename-返回文件名"><a href="#os-path-basename-返回文件名" class="headerlink" title="os.path.basename:返回文件名"></a>os.path.basename:返回文件名</h6><h6 id="os-path-dirname-返回文件所在目录"><a href="#os-path-dirname-返回文件所在目录" class="headerlink" title="os.path.dirname:返回文件所在目录"></a>os.path.dirname:返回文件所在目录</h6>
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <div class="post-meta">
-        <span class="post-time">2018-10-10</span>
-      </div>
-      <div class="post-title">
-        
-          <a class="post-title-link" href="/2018/10/10/快速认识线程/">
-            
-              第一章：快速认识线程
-            
-          </a>
-          
-        
-        <div class="post-tags">
-          
-        </div>
-      </div>
-      <div class="post-content">
-
-        
-
-        
-        <h3 id="第一节：线程基础"><a href="#第一节：线程基础" class="headerlink" title="==第一节：线程基础=="></a>==第一节：线程基础==</h3><h5 id="1-1-线程的介绍"><a href="#1-1-线程的介绍" class="headerlink" title="1.1 线程的介绍"></a>1.1 线程的介绍</h5><p>进程：对于计算机来说，每一个任务就是一个进程<br>线程：每一个进程中至少有一个线程要运行，每一个线程都要有自己的局部变量表、程序计数器以及各自的生命周期</p>
-<hr>
-<h5 id="1-2快速创建一个线程"><a href="#1-2快速创建一个线程" class="headerlink" title="1.2快速创建一个线程"></a>1.2快速创建一个线程</h5><ul>
-<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Enumeration;</span><br><span class="line">import java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line">import javax.net.ssl.SSLException;</span><br><span class="line">import javax.swing.LookAndFeel;</span><br><span class="line"></span><br><span class="line">public class Main</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) </span><br><span class="line">	&#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		new Thread()</span><br><span class="line">		&#123;</span><br><span class="line">			@Override</span><br><span class="line">			public void run()</span><br><span class="line">			&#123;</span><br><span class="line">				Look();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;.start();</span><br><span class="line">		eat();</span><br><span class="line">	&#125;</span><br><span class="line">	private static void Look()</span><br><span class="line">	&#123;</span><br><span class="line">		for(;;)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;我看一看&quot;);</span><br><span class="line">			sleep(1);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	private static void eat() </span><br><span class="line">	&#123;</span><br><span class="line">		for(;;)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(&quot;我尝一尝&quot;);</span><br><span class="line">			sleep(1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	private static void sleep(int seconds) </span><br><span class="line">	&#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			TimeUnit.SECONDS.sleep(seconds);</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			// TODO: handle exception</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h5 id="1-3-线程生命周期"><a href="#1-3-线程生命周期" class="headerlink" title="1.3 线程生命周期"></a>1.3 线程生命周期</h5><table>
-<thead>
-<tr>
-<th>状态</th>
-<th>说明</th>
-<th>状态转换</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>NEW</td>
-<td>创建一个Thread对象，不处于执行状态</td>
-<td>通过start进入RUNNABLE状态</td>
-</tr>
-<tr>
-<td>RUNNABLE</td>
-<td>创建线程，等待CPU调度</td>
-<td>CPU调度进入RUNNING状态</td>
-</tr>
-<tr>
-<td>RUNNING</td>
-<td>执行状态</td>
-<td>* 调用stop或判断标识符进入TERMINATED状态</td>
-</tr>
-<tr>
-<td>RUNNING</td>
-<td>执行状态</td>
-<td>* 调用sleep或wait进入BLOCKED状态</td>
-</tr>
-<tr>
-<td>RUNNING</td>
-<td>执行状态</td>
-<td>* 进行某个阻塞的IO操作，进入BLOCKED状态</td>
-</tr>
-<tr>
-<td>RUNNING</td>
-<td>执行状态</td>
-<td>*获取某个锁资源，从而加入到该锁的阻塞队列而进入BLOCKED状态</td>
-</tr>
-<tr>
-<td>RUNNING</td>
-<td>执行状态</td>
-<td>* 由于CPU调度进入RUNNABLE状态</td>
-</tr>
-<tr>
-<td>RUNNING</td>
-<td>执行状态</td>
-<td>* 线程主动调用yield方法进入RUNNABLE状态</td>
-</tr>
-<tr>
-<td>BLOCKED</td>
-<td>阻塞状态</td>
-<td>* 直接进入TERMINATED状态，调用stop或意外错误</td>
-</tr>
-<tr>
-<td>BLOCKED</td>
-<td>阻塞状态</td>
-<td>* 线程阻塞的操作结束，进入RUNNABLE状态</td>
-</tr>
-<tr>
-<td>BLOCKED</td>
-<td>阻塞状态</td>
-<td>* 线程完成了指定时间的休眠，进入RUNNABLE状态</td>
-</tr>
-<tr>
-<td>BLOCKED</td>
-<td>阻塞状态</td>
-<td>* Wait被其他线程notify/notifyall打断</td>
-</tr>
-<tr>
-<td>BLOCKED</td>
-<td>阻塞状态</td>
-<td>* 线程获取到了某个锁资源，进入RUNNABLE状态</td>
-</tr>
-<tr>
-<td>BLOCKED</td>
-<td>阻塞状态</td>
-<td>* 线程在阻塞过程被打断，进入RUNNABLE状态</td>
-</tr>
-<tr>
-<td>TERMINATED</td>
-<td>最终态</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h5 id="1-4-线程的start方法剖析"><a href="#1-4-线程的start方法剖析" class="headerlink" title="1.4 线程的start方法剖析"></a>1.4 线程的start方法剖析</h5><h6 id="Thread-start-方法源码分析及注意事项"><a href="#Thread-start-方法源码分析及注意事项" class="headerlink" title="Thread start 方法源码分析及注意事项"></a>Thread start 方法源码分析及注意事项</h6><p>Thread start源码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void start()</span><br><span class="line">&#123;</span><br><span class="line">    if(threadStatus!=0)</span><br><span class="line">    &#123;</span><br><span class="line">        throw new IllegalThreadStateException();        </span><br><span class="line">    &#125;</span><br><span class="line">    group.add(this);</span><br><span class="line">    boolean started=false;</span><br><span class="line">    try</span><br><span class="line">    &#123;</span><br><span class="line">        start0();</span><br><span class="line">        started=true;</span><br><span class="line">    &#125;</span><br><span class="line">    finally</span><br><span class="line">    &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            if(!started)</span><br><span class="line">            &#123;</span><br><span class="line">                group.threadStartFailed(this);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch(Throwable ignore)</span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中最核心的方法为调用start0()这个本地方法，而重构的run()方法则是由JNI方法start0()调用的</p>
-<ul>
-<li>由源码可以分析出：不能两次启动Thread，否则会出现IllegalThreadStateException异常</li>
-<li>线程被启动会被加入到ThreadGroup中</li>
-<li>TERMINATED状态的线程无法再回到RUNNABLE状态和RUNNING状态的</li>
-</ul>
-<hr>
-
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <div class="post-meta">
-        <span class="post-time">2018-10-10</span>
-      </div>
-      <div class="post-title">
-        
-          <a class="post-title-link" href="/2018/10/10/深入理解Thread构造函数/">
-            
-              第二章：深入理解Thread构造函数
-            
-          </a>
-          
-        
-        <div class="post-tags">
-          
-        </div>
-      </div>
-      <div class="post-content">
-
-        
-
-        
-        <hr>
-<h2 id="第一节-线程的命名"><a href="#第一节-线程的命名" class="headerlink" title="第一节 线程的命名"></a>第一节 线程的命名</h2><h3 id="1、-线程的默认命名"><a href="#1、-线程的默认命名" class="headerlink" title="1、 线程的默认命名"></a>1、 线程的默认命名</h3><h6 id="如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名"><a href="#如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名" class="headerlink" title="如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名"></a>如果没有为线程指定名字的话，线程将会以Thread-作为前缀进行命名</h6><hr>
-<h3 id="2、线程命名"><a href="#2、线程命名" class="headerlink" title="2、线程命名"></a>2、线程命名</h3><h6 id="Thread-Runnable-target-String-name"><a href="#Thread-Runnable-target-String-name" class="headerlink" title="Thread(Runnable target,String name)"></a>Thread(Runnable target,String name)</h6><h6 id="Thread-String-name"><a href="#Thread-String-name" class="headerlink" title="Thread(String name)"></a>Thread(String name)</h6><h6 id="Thread-ThreadGroup-group-Runnable-target-String-name"><a href="#Thread-ThreadGroup-group-Runnable-target-String-name" class="headerlink" title="Thread(ThreadGroup group,Runnable target,String name)"></a>Thread(ThreadGroup group,Runnable target,String name)</h6><h6 id="Thread-ThreadGroup-group-String-name"><a href="#Thread-ThreadGroup-group-String-name" class="headerlink" title="Thread(ThreadGroup group,,String name)"></a>Thread(ThreadGroup group,,String name)</h6><hr>
-<h2 id="第二节：线程的父子关系"><a href="#第二节：线程的父子关系" class="headerlink" title="第二节：线程的父子关系"></a>第二节：线程的父子关系</h2><h6 id="任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程"><a href="#任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程" class="headerlink" title="任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程"></a>任何一个线程都是由他的父线程创建的，上述示例中所有线程都是由main作为父线程</h6><h6 id="currentThread-查看当前线程"><a href="#currentThread-查看当前线程" class="headerlink" title="currentThread():查看当前线程"></a>currentThread():查看当前线程</h6><hr>
-<h2 id="第三节：Thread与ThreadGroup"><a href="#第三节：Thread与ThreadGroup" class="headerlink" title="第三节：Thread与ThreadGroup"></a>第三节：Thread与ThreadGroup</h2><ul>
-<li>main线程所在的ThreadGroup成为main</li>
-<li>构造一个线程的时候如果没有显式的指定ThreadGroup，那么他将和父线程在同一个Group中，拥有相同的优先级</li>
-</ul>
-<hr>
-<h2 id="第四节：Thread与RUNNABLE"><a href="#第四节：Thread与RUNNABLE" class="headerlink" title="第四节：Thread与RUNNABLE"></a>第四节：Thread与RUNNABLE</h2><h6 id="Runnable接口非常简单，只定义了一个无参数无返回的run方法"><a href="#Runnable接口非常简单，只定义了一个无参数无返回的run方法" class="headerlink" title="Runnable接口非常简单，只定义了一个无参数无返回的run方法"></a>Runnable接口非常简单，只定义了一个无参数无返回的run方法</h6><h6 id="创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑"><a href="#创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑" class="headerlink" title="创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑"></a>创建线程的两种方式：继承Thread和实现Runnable，其实实现Runnable实现主要还是Thread类来执行，只是通过Runnbale来实现自己的业务逻辑</h6><hr>
-<h2 id="第五节：守护线程"><a href="#第五节：守护线程" class="headerlink" title="第五节：守护线程"></a>第五节：守护线程</h2><h3 id="1、示例"><a href="#1、示例" class="headerlink" title="1、示例"></a>1、示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) </span><br><span class="line">	&#123;</span><br><span class="line">		 	Thread thread=new Thread(()-&gt;</span><br><span class="line">			 	&#123;</span><br><span class="line">			 		while(true)</span><br><span class="line">			 		&#123;</span><br><span class="line">			 			try</span><br><span class="line">			 			&#123;</span><br><span class="line">			 				Thread.sleep(1);</span><br><span class="line">			 			&#125;</span><br><span class="line">			 			catch (Exception e) &#123;</span><br><span class="line">			 				e.printStackTrace();</span><br><span class="line">							// TODO: handle exception</span><br><span class="line">						&#125;</span><br><span class="line">			 		&#125;</span><br><span class="line">			 	&#125;</span><br><span class="line">		 	);</span><br><span class="line">		 	thread.setDaemon(true);//设为守护线程</span><br><span class="line">		 	thread.start();</span><br><span class="line">		 	</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2、-守护线程的作用"><a href="#2、-守护线程的作用" class="headerlink" title="2、 守护线程的作用"></a>2、 守护线程的作用</h3><h6 id="正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。"><a href="#正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。" class="headerlink" title="正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。"></a>正常情况下，程序执行完JVM会退出，加上守护线程可以防止进程被回收。</h6>
         
       </div>
     </article>
